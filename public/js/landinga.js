@@ -143,6 +143,10 @@ app.controller("RootController", function($scope, $timeout, Analytics, $location
 
     $http.get("/getPortfolios").success(function (porfolios) {
         $scope.porfolios = porfolios;
+        if ($scope.portfolio) {
+            var idx = parseInt($scope.portfolio);
+            $scope.openPlayer($scope.porfolios[idx], idx);
+        }
     });
 
    
@@ -190,8 +194,5 @@ app.controller("RootController", function($scope, $timeout, Analytics, $location
         }
     };
 
-    if ($scope.portfolio) {
-        var idx = parseInt($scope.portfolio);
-        $scope.openPlayer($scope.porfolios[idx], idx);
-    }
+    
 });

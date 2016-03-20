@@ -29,7 +29,6 @@ mixin post(post)
 					i.zmdi.zmdi-chevron-right
 
 block opengraph
-	//- meta(property='fb:app_id', content='138566025676')
 	title= title || '部落格 | 奧革設計'
 	meta(property='og:site_name', content='奧革設計 | 創業公司的設計夥伴')
 	meta(property='og:type', content='website')
@@ -38,10 +37,6 @@ block opengraph
 	meta(property='og:description', content='精心整理了各式各樣的設計資源，有各種靈感、資源、工具，設計師的你別錯過了！')
 	meta(property='og:image', content='/images/fb-cover.jpg')
 	meta(property='og:locale', content='zh_TW')
-
-//- block intro
-//- 	.container
-//- 		h1= data.category ? data.category.name : 'Blog'
 
 block content
 	.container(ng-app='BlogApp', ng-cloak): .row.blog-panel(ng-controller="BlogController", ng-init="init()")
@@ -70,27 +65,13 @@ block content
 									span(ng-if="post.publishedDate") {{post.publishedDate | date:'MMM d, y' | uppercase}} 
 									span(ng-if="post.author") BY 
 										span.author {{post.author.name.first | uppercase}} 
-																	//- span(ng-if="post.publishedDate") in {{post.publishedDate}} 
-																	//- if post.categories && post.categories.length
-																	//- 	| in 
-																	//- 	each cat, i in post.categories
-																	//- 		a(href='/blog/' + cat.key)= cat.name
-																	//- 		if i < post.categories.length - 1
-																	//- 			| , 
-																	//- 		else
-																	//- 			|  
-																	//- if post.author
-																	//- 	| BY 
-																		span.author #{post.author.name.first}
 								h2: a(href='/blog/post/{{post.slug}}') {{post.title}}
-								.shareaholic-canvas(data-app='share_buttons', data-app-id='24082972')
+								//- .shareaholic-canvas(data-app='share_buttons', data-app-id='24082972')
 								.post-content(ng-bind="post.content.brief")
 								p.read-more: a(href='/blog/post/{{post.slug}}') 
 									閱讀全文 
 									i.zmdi.zmdi-chevron-right
-						//- each post in data.posts.results
-							//- +post(post)
-					
+
 						.loading-message(ng-if="noMorePost") 沒有更多文章啦！
 						.loading-message(ng-if="isLoadingPost"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
 
