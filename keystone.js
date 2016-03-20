@@ -24,7 +24,7 @@ keystone.init({
 	'emails': 'templates/emails',
 	
 	'auto update': true,
-	'mongo': 'mongodb://localhost/ogdesign',
+	'mongo': 'mongodb://52.91.25.82/ogdesign',
 	'cookie secret': 'ogdesign',
 	'session': true,
 	'auth': true,
