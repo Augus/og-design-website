@@ -4,12 +4,14 @@ block opengraph
 	//- meta(property='fb:app_id', content='138566025676')
 	title= data.post.title + ' | 奧革設計'
 	meta(property='og:site_name', content='奧革設計 | 創業公司的設計夥伴')
-	meta(property='og:type', content='website')
 	meta(property='og:title', content='#{data.post.title} | 奧革設計')
 	meta(property='og:description', content='#{data.post.content.brief}')
+	meta(property="og:type", content="article")
 	if (data.post.image)
 		meta(property='og:image', content='#{data.post.image.url}')
 	meta(property='og:locale', content='zh_TW')
+	if (data.post.author)
+		meta(name="author", content="#{data.post.author}")
 
 block content
 	.container: .row.blog-panel
