@@ -46,6 +46,7 @@ Resource.add({
 	publishedDate: { type: Types.Date, index: true, label: '建立時間'},
 	categories: { type: Types.Relationship, ref: 'ResourceCategory', many: true, label: '資源分類' },
 	isRecommend: { type: Boolean, required: false, default: false, label: '是否推薦' },
+	isPinned: { type: Boolean, required: false, default: false, label: '置頂' },
 });
 
 Resource.schema.virtual('content.full').get(function() {
