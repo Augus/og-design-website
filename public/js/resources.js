@@ -1,4 +1,12 @@
 var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', 'ngModal'])
+.filter('domain', function() {
+    return function(input) {
+        var a = document.createElement('a');
+        a.href = input;
+        return a.hostname;
+    };
+})
+
 .controller("SubmitResourceController", function ($scope, $http, $timeout, $ngModal) {
 	$scope.submit = function () {
 
