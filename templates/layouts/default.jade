@@ -111,7 +111,8 @@ html(lang="zh-Hant-TW")
 
 
 		//- JAVASCRIPT
-		block js
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js')
 		//- jQuery 1.11.3 is included by default, and required by both Bootstrap
 		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
 		//- you can upgrade to 2.1.4 (also bundled) for better performance.
@@ -126,6 +127,7 @@ html(lang="zh-Hant-TW")
 		if user && user.canAccessKeystone
 			script(src='/keystone/js/content/editor.js')
 
+		block js
 		//- Add scripts that are globally required by your site here.
 		script.
 			(function(i, s, o, g, r, a, m) {
