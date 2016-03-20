@@ -20,11 +20,12 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
+	'port': 8080,
 	
 	'emails': 'templates/emails',
 	
 	'auto update': true,
-	'mongo': 'mongodb://52.91.25.82/ogdesign',
+	'mongo': 'mongodb://localhost/ogdesign',
 	'cookie secret': 'ogdesign',
 	'session': true,
 	'auth': true,
