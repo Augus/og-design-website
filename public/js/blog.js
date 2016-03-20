@@ -1,16 +1,17 @@
-var blogApp = angular.module("BlogApp", ['ngAnimate', 'infinite-scroll'])
+var blogApp = angular.module("BlogApp", ['infinite-scroll'])
 .controller("BlogController", function ($scope, $http, $timeout) {
 
 	var start = 0,
 		len = 2;
+
 	$scope.isLoadingPost = false;
 	$scope.noMorePost = false;
 	$scope.posts = [];
 	$scope.myPagingFunction = function () {
-		loadPosts();
+		$scope.loadPosts();
 	};
 
-	var loadPosts = function () {
+	$scope.loadPosts = function () {
 
 		if ($scope.noMorePost) return;
 
@@ -32,7 +33,7 @@ var blogApp = angular.module("BlogApp", ['ngAnimate', 'infinite-scroll'])
 	};
 
 	$scope.init = function () {
-		loadPosts();
+		$scope.loadPosts();
 	};
 
 });

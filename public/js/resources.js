@@ -51,15 +51,19 @@ var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', '
 	$scope.categories = [];
 	$scope.resources = [];
 
-	$http.get("/getCategories").success(function (data) {
-		$scope.categories = data;
-	});
+	$scope.init = function () {
 
-	$scope.isLoading = true;
-	$http.get("/getResources").success(function (data) {
-		$scope.isLoading = false;
-		$scope.resources = data;
-	});
+        $scope.isLoading = true;
+
+        $http.get("/getCategories").success(function (data) {
+            $scope.categories = data;
+        });
+
+        $http.get("/getResources").success(function (data) {
+            $scope.isLoading = false;
+            $scope.resources = data;
+        });
+    };
 
 	$scope.openResource = function (e, resource) {
 		$http.get("/view/" + resource._id).success(function (data) {});

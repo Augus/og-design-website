@@ -12,7 +12,7 @@ block opengraph
 	meta(property='og:locale', content='zh_TW')
 
 block content
-	.container(ng-app='ResouceApp', ng-controller="ResourceController", ng-cloak, w-mousetrap="{'f': search, 'cmd+f': search}"): .row.resource-panel
+	.container(ng-app='ResouceApp', ng-controller="ResourceController", ng-init="init()", ng-cloak, w-mousetrap="{'f': search, 'cmd+f': search}"): .row.resource-panel
 		.col-md-3
 			.button.button-block.green.submit-button(open-modal="submit-resource-modal")
 				i.zmdi.zmdi-mail-send 
