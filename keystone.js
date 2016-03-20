@@ -20,7 +20,7 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
-	'port': 80,
+	'port': 8080,
 	
 	'emails': 'templates/emails',
 	
