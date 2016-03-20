@@ -1,0 +1,128 @@
+extends ../layouts/default
+
+block opengraph
+	//- meta(property='fb:app_id', content='138566025676')
+	title= title || '設計資源總匯 | 奧革設計'
+	meta(property='og:site_name', content='奧革設計 | 創業公司的設計夥伴')
+	meta(property='og:type', content='website')
+	meta(property='og:url', content='')
+	meta(property='og:title', content='設計資源總匯 | 奧革設計')
+	meta(property='og:description', content='精心整理了各式各樣的設計資源，有各種靈感、資源、工具，設計師的你別錯過了！')
+	meta(property='og:image', content='/images/fb-cover.jpg')
+	meta(property='og:locale', content='zh_TW')
+
+block content
+	.container(ng-app='ResouceApp', ng-controller="ResourceController", ng-cloak, w-mousetrap="{'f': search, 'cmd+f': search}"): .row.resource-panel
+		.col-md-3
+			.button.button-block.green.submit-button(open-modal="submit-resource-modal")
+				i.zmdi.zmdi-mail-send 
+				span 提供內容給我們
+			.resource-categories.hidden-xs
+				//- label 分類
+				ul
+					li(ng-click="filter()", ng-class="{'active': !currentCategory}"): a(href='')
+						span 全部
+						span.count {{resources.length}}
+					li(ng-repeat='category in categories' ng-class="{'active': category.id == currentCategory}" ng-click="filter(category)"): a(href='')
+						span {{category.name}}
+						span.count {{category.count}}
+			//- .resource-categories: ul
+				//- label 排序
+				//- li.active(ng-click="filter()"): a(href='')
+					//- span 預設排序
+				//- li(ng-click="filter()"): a(href='')
+					//- span 建立時間
+				//- each category in data.categories
+					li(class=(category.isActive ? 'active' : null)): a(href='#')
+						span #{category.name}
+						span.count #{category.count}
+		.col-md-9
+			.row.search
+				.col-md-12
+					.search-resource
+						i.zmdi.zmdi-search
+						input(id='search', type='search', placeholder='搜尋資源…（例如：靈感、工具、配色）', ng-model='keyword' ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }",  ng-keyup='onSearchKeyUp($event)')
+						.social-like.hidden-xs
+							.fb-like(data-href="https://www.facebook.com/ogdesign.tw", data-layout="button_count", data-action="like", data-show-faces="false", data-share="true", data-width="200", data-colorscheme="light", style="color: #111D2D; width: 200px; overflow: hidden; height: 20px; text-align: right; vertical-align: middle;")
+							.fb-follow(data-href="https://www.facebook.com/Augus.YiHao", data-width="90", data-layout="button_count", data-show-faces="true", style="vertical-align: middle;")
+
+								//- ng-repeat="i in is = (r.items | filter: searchFilter)"
+			.row.resources
+				.col-sm-6.col-md-4.resource-wrap(ng-repeat='resource in rs = (resources | filter: searchFilter | filter: categoryFilter)')
+					a.resource(ng-href='{{resource.url}}?utm_source=ogdesign.tw', target='_blank', ng-click="openResource($event, resource)")
+						.tag.recommend(ng-if='resource.isRecommend') 
+							i.zmdi.zmdi-fire
+							推薦
+						.thumb(ng-if="resource.image", style="background-image:url({{resource.image.url}})")
+						.thumb(ng-if="!resource.image"): .url{{resource.url}}
+						//- .overlay: span 
+						//- 	.icon: i.zmdi.zmdi-open-in-new
+						//- 	開啟連結
+						.info
+							h4.title {{resource.title}}
+							p.description {{resource.description}}
+				.col-md-12(ng-show="rs.length==0 && !isLoading")
+					.empty
+						p 沒有相關資源
+				//- each resource in data.resources
+					.col-md-4
+						a.resource(href='#{resource.url}', target='_blank')
+							if resource.isRecommend
+								.tag.recommend 推薦
+							.thumb(style="background-image:url(#{resource.image.url})")
+							//- .overlay: span 
+							//- 	.icon: i.zmdi.zmdi-open-in-new
+							//- 	開啟連結
+							.info
+								h4.title #{resource.title}
+								p.description #{resource.description}
+		div(ng-modal='submit-resource-modal')
+			.submit-resource-modal.mdl-modal.mdl-effect-19(ng-controller="SubmitResourceController" ng-class="{'mdl-show': isOpen}")
+				.mdl-content
+					.submit-resource(ng-show="!isSuccess")
+						h2 提供設計資源
+						p 來和大家分享你找到的好資源！
+						input(type="text", placeholder="http://", ng-model="newResourceUrl")
+						input(type="text", placeholder="名稱", ng-model="newResourceTitle")
+						textarea(placeholder="簡短描述這個網站…", ng-model="newResourceDescript")
+						.button.button-block.green(ng-show="!submitting" ng-click="submit()", ng-class="{'disable': !newResourceUrl || !newResourceTitle}") 提交
+						.button.button-block.green.disable(ng-show="submitting")
+							i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
+							提交
+					.submit-resource(ng-show="isSuccess")
+						img(src="/images/accept.svg")
+						h2 提交成功啦！
+						p 感謝提供這麼棒的資源，我們將盡快上架這個資源：）
+					.mdl-close(close-modal): i.zmdi.zmdi-close
+			.mdl-overlay(close-modal)
+	
+block js
+	script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js')
+	script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js')
+	script(src='/js/is.min.js')
+	script(src='/js/mousetrap.js')
+	script(src='/js/wMousetrap.js')
+	script(src='/js/ngModal.js')
+	script(src='/js/resources.js')
+    
+	script.
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId				:'YOUR_APP_ID', // App ID
+				channelUrl	: '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+				status			: true, // check login status
+				cookies			: true, // enable cookies to allow the server to access the session
+				xfbml				: true  // parse XFBML
+			});
+		};
+		// Load the SDK Asynchronously
+		(function(d){
+			var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	
+
+

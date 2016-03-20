@@ -1,0 +1,172 @@
+
+// 按鈕樣式
+// -------------------------------
+@mixin button-style($bg-color, $border-color, $active-bg-color, $active-border-color, $color) {
+    background-color: $bg-color;
+    border-color: $border-color;
+    color: $color;
+    &:hover, &:active {
+        text-decoration: none;
+        background-color: $active-bg-color;
+        border-color: $active-border-color;
+        color: $color;
+    }
+}
+
+// 僅有框線的Button
+// -------------------------------
+@mixin button-outline($color, $text-color: "") {
+    &.button-outline {
+        border-width: 1px;
+        border-color: $color;
+        background: transparent;
+       box-sizing: border-box;
+        @if $text-color == "" {
+            $text-color: $color;
+        }
+        color: $text-color;
+        &:hover, &:active {
+            background: transparent;
+            box-shadow: none;
+            // background-color: $text-color;
+            color: $text-color;
+        }
+    }
+}
+
+.button {
+    // @include easeOutCirc(all, 250ms);
+    // @include border-radius(3px);
+    border-radius:3px;
+    font-size: 16px;
+    padding: 0 25px;
+    margin: 0 3px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    color: #333;
+    background-color: #EEE;
+    min-width: 60px;
+    height: 50px;
+    line-height: 46px;
+    letter-spacing: 2px;
+    @include button-outline(#777, #777);
+   box-sizing: border-box;
+    &.gray {
+        @include button-style(#9b9b9b, #9b9b9b, darken(#9b9b9b, 10%), darken(#9b9b9b, 10%), white);
+        @include button-outline(#9b9b9b, #9b9b9b);
+    }
+    &.white {
+        @include button-style(white, white, darken(white, 5%), darken(white, 5%), #333333);
+        @include button-outline(white, white);
+    }
+    // &.blue {
+    //     @include button-style($blue-color, $blue-color, darken($blue-color, 5%), darken($blue-color, 5%), white);
+    //     @include button-outline($blue-color, $blue-color);
+    // }
+    // &.yellow {
+    //     @include button-style($yellow-color, $yellow-color, darken($yellow-color, 5%), darken($yellow-color, 5%), white);
+    //     @include button-outline($yellow-color, $yellow-color);
+    // }
+    &.green {
+        @include button-style($main-color, $main-color, darken($main-color, 5%), darken($main-color, 5%), white);
+        @include button-outline($main-color, $main-color);
+    }
+    &.primary {
+        @include button-style($main-color, $main-color, darken($main-color, 5%), darken($main-color, 5%), white);
+        @include button-outline($main-color, $main-color);
+    }
+
+    // &.red {
+    //     @include button-style($red-color, $red-color, darken($red-color, 5%), darken($red-color, 5%), white);
+    //     @include button-outline($red-color, $red-color);
+    // }
+    // &.orange {
+    //     @include button-style($orange-color, $orange-color, darken($orange-color, 5%), darken($orange-color, 5%), white);
+    //     @include button-outline($orange-color, $orange-color);
+    // }
+    &.facebook {
+        @include button-style(#4d8ec0, #4d8ec0, darken(#4d8ec0, 5%), darken(#4d8ec0, 5%), white);
+        @include button-outline(#4d8ec0, #4d8ec0);
+    }
+    &.twitter {
+        @include button-style(#55aabb, #55aabb, darken(#55aabb, 5%), darken(#55aabb, 5%), white);
+        @include button-outline(#55aabb, #55aabb);
+    }
+    &.ligth-gray {
+        @include button-style(#707F97, #707F97, darken(#707F97, 10%), darken(#707F97, 10%), white);
+        @include button-outline(#707F97, #707F97);
+    }
+    i {
+        margin-right: 10px;
+    }
+    &:hover {
+        background-color: #ddd;
+        text-decoration: none;
+        color: #000;
+    }
+    &.disable {
+        opacity: 0.5;
+        cursor: default;
+    }
+    &.button-block {
+        display: block;
+        text-align: center;
+        margin: 0;
+        i {}
+    }
+    &.small {
+        padding: 0 5px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 13px;
+    }
+    &.large {
+        height: 50px;
+        line-height: 50px;
+        padding: 0 40px;
+        font-size: 14px;
+    }
+    &.largest {
+        padding: 0 50px;
+        font-size: 16px;
+        height: 56px;
+        line-height: 56px;
+    }
+    &.rounded {
+        //@include border-radius(50px);
+        border-radius:50px;
+    }
+}
+
+// 群組按鈕
+// -------------------------------
+.btn-group {
+    display: inline-block;
+    vertical-align: middle;
+    .btn, .flat-btn {
+        margin: 0;
+        float: left;
+        &:first-child {
+            border-right-width: 1px;
+            //@include border-radius(3px 0 0 3px);
+             border-radius:3px 0 0 3px;
+            &:not(.red) {
+                border-right-width: 0;
+            }
+        }
+        &:last-child {
+            border-left-width: 1px;
+            margin-right: -1px;
+            //@include border-radius(0 3px 3px 0);
+            border-radius:0 3px 3px 0;
+            &:not(.red) {
+                border-left-width: 0;
+            }
+        }
+        i {
+            margin: 0px;
+        }
+    }
+}

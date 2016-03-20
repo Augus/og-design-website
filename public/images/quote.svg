@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="15px" height="11px" viewBox="0 0 15 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5 (25232) - http://www.bohemiancoding.com/sketch -->
+    <title>quote</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Baikal-Startup-Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Testimonial" sketch:type="MSArtboardGroup" transform="translate(-592.000000, -309.000000)" fill-opacity="0.5" fill="#000000">
+            <g id="Testimonials" sketch:type="MSLayerGroup">
+                <g id="奧革設計對於-UI/UX-的設計讓我們印-+-Icon" transform="translate(480.000000, 309.000000)" sketch:type="MSShapeGroup">
+                    <path d="M118.859334,7.63265306 C118.859334,8.59048098 118.521741,9.39115324 117.846546,10.0346939 C117.171351,10.6782345 116.373405,11 115.452685,11 C114.531964,11 113.726346,10.6782345 113.035805,10.0346939 C112.345265,9.39115324 112,8.62041265 112,7.72244898 C112,6.82448531 112.414318,5.73197922 113.242966,4.44489796 L116.005114,1.90070182e-13 L118.67519,1.90070182e-13 L116.971866,4.66938776 C118.230184,5.23809808 118.859334,6.22584331 118.859334,7.63265306 Z M127,7.63265306 C127,8.59048098 126.662408,9.39115324 125.987212,10.0346939 C125.312017,10.6782345 124.514072,11 123.593351,11 C122.672631,11 121.867012,10.6782345 121.176472,10.0346939 C120.485931,9.39115324 120.140666,8.62041265 120.140666,7.72244898 C120.140666,6.82448531 120.554984,5.73197922 121.383633,4.44489796 L124.145781,0 L126.815857,0 L125.112532,4.66938776 C126.37085,5.23809808 127,6.22584331 127,7.63265306 Z" id="quote"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

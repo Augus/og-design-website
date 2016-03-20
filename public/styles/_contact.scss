@@ -1,0 +1,119 @@
+.contact-section {
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: auto;
+
+	.feature-content {
+		p {
+			margin-bottom: 40px !important;
+		}
+	}
+    // background-attachment: fixed;
+	.contact-form {
+		overflow: hidden;
+		background-color: #fff;
+		padding: 24px;
+		text-align: left;
+		border-radius: 4px;
+		overflow: hidden;
+		height: 380px; 
+		input, textarea {
+			display: block;
+			width: 100%;
+			padding: 15px;
+			border-radius: 3px;
+			margin-bottom: 12px;
+			background-color: #F5F5F5;
+			color: #333;
+			font-size: 14px;
+			&:focus {
+				outline: none;
+				border-color: $main-color;
+				// box-shadow: 0 0 0 1px $main-color;
+				// color: $main-color;
+			}
+		}
+		label {
+			display: block;
+			font-size: 14px;
+			margin-bottom: 16px;
+			color: $dark-color;
+			font-weight: normal;
+		}
+		input {
+			height: 50px;
+		}
+		textarea {
+			margin-bottom: 16px;
+		}
+
+		.success-message {
+			padding: 64px 40px;
+			display: none;
+			color: #333;
+			text-align: center;
+			img {
+				width: 80px;
+				margin-bottom: 20px;
+			}
+			.message-icon {
+			    margin-bottom: 20px;
+			}
+			.message-title {
+				font-weight: bold;
+				font-size: 24px;
+				color: $dark-color;
+			}
+			.message-content {
+				font-size: 14px;
+				line-height: 1.7em;
+			    color: $gray-color;
+			}
+		}
+
+		.contact-form-content {
+			display: block;
+		}
+
+		&.success {
+			.success-message {
+				display: block;
+			}
+			.contact-form-content {
+				display: none;
+			}
+		}
+
+	}
+	.contact-info {
+		text-align: left;
+		padding: 36px 30px;
+		height: 380px; 
+		background-color: #fff;
+		border-radius: 5px;
+		overflow: hidden;
+		.info-title {
+			font-size: 20px;
+			color: $dark-color;
+			margin-bottom: 12px;
+			font-weight: bold;
+		}
+		.info-section {
+			margin-bottom: 35px;
+			.info-item {
+				font-size: 14px;
+				margin-bottom: 8px;
+				color: #777;
+				font-weight: normal;
+				a {
+					color: #6a6a6a;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}

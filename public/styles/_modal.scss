@@ -1,0 +1,971 @@
+@charset "utf-8";
+// *************************************
+//
+//   Jibao StyleSheet
+//   -> 
+//
+//  參考 : http://tympanus.net/Development/ModalWindowEffects/
+//
+// *************************************
+$modal-small-width: 360px;
+$modal-medium-width: 480px;
+$modal-large-width: 640px;
+$modal-largest-width: 1024px;
+.mdl-modal {
+    z-index: 99999 + 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    max-width: $modal-medium-width;
+    width: 480px;
+    height: auto;
+    visibility: hidden;
+    // box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.20), 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+    transform: translateX(-50%) translateY(-50%);
+    // -------------------------------------
+    //   Small
+    // -------------------------------------
+    &.mdl-small {
+        max-width: $modal-small-width;
+        min-width: 320px;
+    }
+    // -------------------------------------
+    //   Medium
+    // -------------------------------------
+    &.mdl-medium {
+        max-width: $modal-medium-width;
+        min-width: 320px;
+    }
+    // -------------------------------------
+    //   Large
+    // -------------------------------------
+    &.mdl-large {
+        max-width: $modal-large-width;
+        min-width: 320px;
+    }
+    &.mdl-largest {
+        max-width: $modal-largest-width;
+        min-width: 320px;
+    }
+    &.mdl-all {
+        width: 100%!important;
+        height: 100%!important;
+        max-width: 100%!important;
+        min-width: 100%!important;
+        .pdfHeader {
+            height: 10%;
+        }
+        .pdfContainer {
+            position: absolute;
+            top: 0;
+            left: 80px;
+            right: 80px;
+            bottom: 0;
+            overflow: hidden;
+        }
+        .pdfContainer embed {
+            min-width: 100%;
+            min-height: 100%;
+        }
+    }
+    .mdl-pdf-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+        text-align: center;
+        font-size: 40px;
+        border-radius: 50%;
+        background-color: #FFF;
+        &:hover {
+            color: #333;
+            cursor: pointer;
+        }
+    }
+    .mdl-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 70px;
+        line-height: 70px;
+        width: 70px;
+        text-align: center;
+        font-size: 20px;
+        &:hover {
+            color: #333;
+            cursor: pointer;
+        }
+    }
+    .mdl-header {
+        height: 70px;
+        line-height: 70px;
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+        border-radius: 5px 5px 0 0;
+        h3 {
+            line-height: 70px;
+            margin: 0;
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-weight: 900;
+            color: $dark-color;
+        }
+    }
+    .mdl-footer {
+        background-color: #fff;
+        border-top: 1px solid #eee;
+        border-radius: 0 0 5px 5px;
+        padding: 10px 25px;
+    }
+    .padding {
+        padding: 20px;
+        overflow: auto;
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    }
+    .overflow-content {
+        padding: 15px 40px 30px;
+        max-height: 60vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+.mdl-show {
+    visibility: visible;
+}
+
+.mdl-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    background-color: #000;
+    &:after {
+        position: relative;
+        content: "";
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        opacity: 1;
+        border-radius: 100%;
+        border-top: 1px solid #fff;
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid rgba(#fff, .3);
+        border-right: 1px solid rgba(#fff, .3);
+        transition: opacity 750ms;
+        animation: rotate .6s linear infinite;
+    }
+}
+
+.mdl-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    // opacity: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    // background-image: radial-gradient(50% 51%, rgba(249, 249, 249, 0.6) 50%, rgba(221, 221, 221, 0.8) 100%);
+    // background-color: rgba(242, 242, 242, 0.6);
+    // background-color: rgba(32, 43, 50, 0.9);
+    transition: all 0.5s ease-in-out;
+    animation: overlay-fade-out .250s ease-out forwards;
+    transition: visibility 0 linear .2s;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+// .mdl-show ~ *{
+// 	-webkit-filter: blur(2px);
+// 	transition: -webkit-filter 200ms ease-out;
+// }
+.mdl-show ~ .mdl-overlay {
+    // opacity: 1;
+    animation: overlay-fade-in .250s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transition: visibility 0 linear 0;
+    visibility: visible;
+}
+
+@include keyframes(overlay-fade-in) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@include keyframes(overlay-fade-out) {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Content styles */
+
+.mdl-content {
+    color: #9b9b9b;
+    background: #fff;
+    position: relative;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+// .mdl-content > div {
+// 	padding: 15px 40px 30px;
+// 	margin: 0;
+// 	font-weight: 300;
+// 	font-size: 1.15em;
+// }
+.mdl-content > div p {
+    color: #9b9b9b;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.mdl-content > div ul {
+    margin: 0;
+    padding: 0 0 30px 20px;
+}
+
+.mdl-content > div ul li {
+    padding: 5px 0;
+}
+
+.mdl-content button {
+    display: block;
+    margin: 0 auto;
+    font-size: 0.8em;
+}
+
+
+/* Individual modal styles with animations/transitions */
+
+
+/* Effect 1: Fade in and scale up */
+
+.mdl-effect-1 .mdl-content {
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    transform: scale(0.85);
+    opacity: 0;
+    // -webkit-transition: all 0.3s;
+    // -moz-transition: all 0.3s;
+    // transition: all 0.3s;
+    // transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    // transition: all .225s cubic-bezier(0.0,0.0,0.2,1);
+    -webkit-transition: all 300ms cubic-bezier(0.175, 0.885, 0.675, 1);
+    /* older webkit */
+    -webkit-transition: all 300ms cubic-bezier(0.175, 0.885, 0.675, 1.265);
+    -moz-transition: all 300ms cubic-bezier(0.175, 0.885, 0.675, 1.265);
+    -o-transition: all 300ms cubic-bezier(0.175, 0.885, 0.675, 1.265);
+    transition: all 300ms cubic-bezier(0.175, 0.885, 0.675, 1.265);
+    /* custom */
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.675, 1);
+    /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.675, 1.265);
+    -moz-transition-timing-function: cubic-bezier(0.175, 0.885, 0.675, 1.265);
+    -o-transition-timing-function: cubic-bezier(0.175, 0.885, 0.675, 1.265);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.675, 1.265);
+    /* custom */
+}
+
+.mdl-show.mdl-effect-1 .mdl-content {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    // @include transition-delay(70ms);
+}
+
+
+/* Effect 2: Slide from the right */
+
+.mdl-effect-2 .mdl-content {
+    -webkit-transform: translateX(20%);
+    -moz-transform: translateX(20%);
+    -ms-transform: translateX(20%);
+    transform: translateX(20%);
+    opacity: 0;
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    -moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+
+.mdl-show.mdl-effect-2 .mdl-content {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/* Effect 3: Slide from the bottom */
+
+.mdl-effect-3 .mdl-content {
+    -webkit-transform: translateY(20%);
+    -moz-transform: translateY(20%);
+    -ms-transform: translateY(20%);
+    transform: translateY(20%);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.mdl-show.mdl-effect-3 .mdl-content {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* Effect 4: Newspaper */
+
+.mdl-effect-4 .mdl-content {
+    -webkit-transform: scale(0) rotate(720deg);
+    -moz-transform: scale(0) rotate(720deg);
+    -ms-transform: scale(0) rotate(720deg);
+    transform: scale(0) rotate(720deg);
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-4 ~ .mdl-overlay,
+.mdl-effect-4 .mdl-content {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.mdl-show.mdl-effect-4 .mdl-content {
+    -webkit-transform: scale(1) rotate(0deg);
+    -moz-transform: scale(1) rotate(0deg);
+    -ms-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 5: fall */
+
+.mdl-effect-5.mdl-modal {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.mdl-effect-5 .mdl-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translateZ(600px) rotateX(20deg);
+    -moz-transform: translateZ(600px) rotateX(20deg);
+    -ms-transform: translateZ(600px) rotateX(20deg);
+    transform: translateZ(600px) rotateX(20deg);
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-5 .mdl-content {
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -webkit-transform: translateZ(0px) rotateX(0deg);
+    -moz-transform: translateZ(0px) rotateX(0deg);
+    -ms-transform: translateZ(0px) rotateX(0deg);
+    transform: translateZ(0px) rotateX(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 6: side fall */
+
+.mdl-effect-6.mdl-modal {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.mdl-effect-6 .mdl-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translate(30%) translateZ(600px) rotate(10deg);
+    -moz-transform: translate(30%) translateZ(600px) rotate(10deg);
+    -ms-transform: translate(30%) translateZ(600px) rotate(10deg);
+    transform: translate(30%) translateZ(600px) rotate(10deg);
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-6 .mdl-content {
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -webkit-transform: translate(0%) translateZ(0) rotate(0deg);
+    -moz-transform: translate(0%) translateZ(0) rotate(0deg);
+    -ms-transform: translate(0%) translateZ(0) rotate(0deg);
+    transform: translate(0%) translateZ(0) rotate(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 7:  slide and stick to top */
+
+.mdl-effect-7 {
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.mdl-effect-7 .mdl-content {
+    -webkit-transform: translateY(-200%);
+    -moz-transform: translateY(-200%);
+    -ms-transform: translateY(-200%);
+    transform: translateY(-200%);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-7 .mdl-content {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+    border-radius: 0 0 3px 3px;
+    opacity: 1;
+}
+
+
+/* Effect 8: 3D flip horizontal */
+
+.mdl-effect-8.mdl-modal {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.mdl-effect-8 .mdl-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateY(-70deg);
+    -moz-transform: rotateY(-70deg);
+    -ms-transform: rotateY(-70deg);
+    transform: rotateY(-70deg);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-8 .mdl-content {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 9: 3D flip vertical */
+
+.mdl-effect-9.mdl-modal {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.mdl-effect-9 .mdl-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-70deg);
+    -moz-transform: rotateX(-70deg);
+    -ms-transform: rotateX(-70deg);
+    transform: rotateX(-70deg);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-9 .mdl-content {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 10: 3D sign */
+
+.mdl-effect-10.mdl-modal {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.mdl-effect-10 .mdl-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-60deg);
+    -moz-transform: rotateX(-60deg);
+    -ms-transform: rotateX(-60deg);
+    transform: rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+    -moz-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.mdl-show.mdl-effect-10 .mdl-content {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 11: Super scaled */
+
+.mdl-effect-11 .mdl-content {
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.mdl-show.mdl-effect-11 .mdl-content {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* Effect 12:  Just me */
+
+.mdl-effect-12 .mdl-content {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.mdl-show.mdl-effect-12 ~ .mdl-overlay {
+    background: #e74c3c;
+}
+
+.mdl-effect-12 .mdl-content h3,
+.mdl-effect-12 .mdl-content {
+    background: transparent;
+}
+
+.mdl-show.mdl-effect-12 .mdl-content {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* Effect 13: 3D slit */
+
+.mdl-effect-13.mdl-modal {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.mdl-effect-13 .mdl-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translateZ(-3000px) rotateY(90deg);
+    -moz-transform: translateZ(-3000px) rotateY(90deg);
+    -ms-transform: translateZ(-3000px) rotateY(90deg);
+    transform: translateZ(-3000px) rotateY(90deg);
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-13 .mdl-content {
+    -webkit-animation: slit .7s forwards ease-out;
+    -moz-animation: slit .7s forwards ease-out;
+    animation: slit .7s forwards ease-out;
+}
+
+@-webkit-keyframes slit {
+    50% {
+        -webkit-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -webkit-animation-timing-function: ease-out;
+    }
+    100% {
+        -webkit-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slit {
+    50% {
+        -moz-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -moz-animation-timing-function: ease-out;
+    }
+    100% {
+        -moz-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes slit {
+    50% {
+        transform: translateZ(-250px) rotateY(89deg);
+        opacity: 1;
+        animation-timing-function: ease-in;
+    }
+    100% {
+        transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+
+/* Effect 14:  3D Rotate from bottom */
+
+.mdl-effect-14.mdl-modal {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.mdl-effect-14 .mdl-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translateY(100%) rotateX(90deg);
+    -moz-transform: translateY(100%) rotateX(90deg);
+    -ms-transform: translateY(100%) rotateX(90deg);
+    transform: translateY(100%) rotateX(90deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.mdl-show.mdl-effect-14 .mdl-content {
+    -webkit-transform: translateY(0%) rotateX(0deg);
+    -moz-transform: translateY(0%) rotateX(0deg);
+    -ms-transform: translateY(0%) rotateX(0deg);
+    transform: translateY(0%) rotateX(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 15:  3D Rotate in from left */
+
+.mdl-effect-15.mdl-modal {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.mdl-effect-15 .mdl-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+    -moz-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+    -ms-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+    transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.mdl-show.mdl-effect-15 .mdl-content {
+    -webkit-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+    -moz-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+    -ms-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+    transform: translateZ(0px) translateX(0%) rotateY(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 16:  Blur */
+
+.mdl-show.mdl-effect-16 ~ .mdl-overlay {
+    background: rgba(180, 46, 32, 0.5);
+}
+
+.mdl-show.mdl-effect-16 ~ .container {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    filter: blur(3px);
+}
+
+.mdl-effect-16 .mdl-content {
+    -webkit-transform: translateY(-5%);
+    -moz-transform: translateY(-5%);
+    -ms-transform: translateY(-5%);
+    transform: translateY(-5%);
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-16 ~ .container,
+.mdl-effect-16 .mdl-content {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.mdl-show.mdl-effect-16 .mdl-content {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* Effect 17:  Slide in from bottom with perspective on container */
+
+.mdl-show.mdl-effect-17 ~ .container {
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.mdl-show.mdl-effect-17 ~ .container,
+.mdl-show.mdl-effect-17 ~ .mdl-overlay {
+    -webkit-transform: rotateX(-2deg);
+    -moz-transform: rotateX(-2deg);
+    -ms-transform: rotateX(-2deg);
+    transform: rotateX(-2deg);
+    -webkit-transform-origin: 50% 0%;
+    -moz-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.mdl-effect-17 .mdl-content {
+    opacity: 0;
+    -webkit-transform: translateY(200%);
+    -moz-transform: translateY(200%);
+    -ms-transform: translateY(200%);
+    transform: translateY(200%);
+}
+
+.mdl-show.mdl-effect-17 .mdl-content {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-transition: all 0.3s 0.2s;
+    -moz-transition: all 0.3s 0.2s;
+    transition: all 0.3s 0.2s;
+}
+
+
+/* Effect 18:  Slide from right with perspective on container */
+
+.mdl-show.mdl-effect-18 ~ .container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.mdl-show.mdl-effect-18 ~ .mdl-overlay {
+    background: rgba(143, 27, 15, 0.8);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.mdl-show.mdl-effect-18 ~ .container,
+.mdl-show.mdl-effect-18 ~ .mdl-overlay {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: 0% 50%;
+    -webkit-animation: rotateRightSideFirst 0.5s forwards ease-in;
+    -moz-transform-style: preserve-3d;
+    -moz-transform-origin: 0% 50%;
+    -moz-animation: rotateRightSideFirst 0.5s forwards ease-in;
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    animation: rotateRightSideFirst 0.5s forwards ease-in;
+}
+
+@-webkit-keyframes rotateRightSideFirst {
+    50% {
+        -webkit-transform: translateZ(-50px) rotateY(5deg);
+        -webkit-animation-timing-function: ease-out;
+    }
+    100% {
+        -webkit-transform: translateZ(-200px);
+    }
+}
+
+@-moz-keyframes rotateRightSideFirst {
+    50% {
+        -moz-transform: translateZ(-50px) rotateY(5deg);
+        -moz-animation-timing-function: ease-out;
+    }
+    100% {
+        -moz-transform: translateZ(-200px);
+    }
+}
+
+@keyframes rotateRightSideFirst {
+    50% {
+        transform: translateZ(-50px) rotateY(5deg);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateZ(-200px);
+    }
+}
+
+.mdl-effect-18 .mdl-content {
+    -webkit-transform: translateX(200%);
+    -moz-transform: translateX(200%);
+    -ms-transform: translateX(200%);
+    transform: translateX(200%);
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-18 .mdl-content {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+    -webkit-transition: all 0.5s 0.1s;
+    -moz-transition: all 0.5s 0.1s;
+    transition: all 0.5s 0.1s;
+}
+
+
+/* Effect 19:  Slip in from the top with perspective on container */
+
+.mdl-show.mdl-effect-19 ~ .container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.mdl-show.mdl-effect-19 ~ .mdl-overlay {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.mdl-show.mdl-effect-19 ~ .container,
+.mdl-show.mdl-effect-19 ~ .mdl-overlay {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 100%;
+    -webkit-animation: OpenTop 0.5s forwards ease-in;
+    -moz-transform-style: preserve-3d;
+    -moz-transform-origin: 50% 100%;
+    -moz-animation: OpenTop 0.5s forwards ease-in;
+    transform-style: preserve-3d;
+    transform-origin: 50% 100%;
+    animation: OpenTop 0.5s forwards ease-in;
+}
+
+@-webkit-keyframes OpenTop {
+    50% {
+        -webkit-transform: rotateX(10deg);
+        -webkit-animation-timing-function: ease-out;
+    }
+}
+
+@-moz-keyframes OpenTop {
+    50% {
+        -moz-transform: rotateX(10deg);
+        -moz-animation-timing-function: ease-out;
+    }
+}
+
+@keyframes OpenTop {
+    50% {
+        transform: rotateX(10deg);
+        animation-timing-function: ease-out;
+    }
+}
+
+.mdl-effect-19 .mdl-content {
+    -webkit-transform: translateY(-200%);
+    -moz-transform: translateY(-200%);
+    -ms-transform: translateY(-200%);
+    transform: translateY(-200%);
+    opacity: 0;
+}
+
+.mdl-show.mdl-effect-19 .mdl-content {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-transition: all 0.5s 0.1s;
+    -moz-transition: all 0.5s 0.1s;
+    transition: all 0.5s 0.1s;
+}
+
+@media screen and (max-width: 32em) {
+    body {
+        font-size: 75%;
+    }
+}
+
+[open-modal] {
+    cursor: pointer;
+}
