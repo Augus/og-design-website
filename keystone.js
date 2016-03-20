@@ -12,7 +12,7 @@ var keystone = require(__base + 'keystone_custom');
 
 keystone.init({
 
-	'name': '奧革設計',
+	'name': 'ogdesign',
 	'brand': '奧革設計',
 	
 	'sass': 'public',
@@ -24,6 +24,7 @@ keystone.init({
 	'emails': 'templates/emails',
 	
 	'auto update': true,
+	'mongo': 'mongodb://localhost/ogdesign',
 	'session': true,
 	'auth': true,
 	'user model': 'User',
