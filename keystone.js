@@ -25,6 +25,7 @@ keystone.init({
 	
 	'auto update': true,
 	'mongo': 'mongodb://localhost/ogdesign',
+	'cookie secret': 'ogdesign',
 	'session': true,
 	'auth': true,
 	'user model': 'User',
