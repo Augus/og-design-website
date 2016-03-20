@@ -8,7 +8,7 @@ block opengraph
 	meta(property='og:description', content='#{data.post.content.brief}')
 	meta(property="og:type", content="article")
 	if (data.post.image)
-		meta(property='og:image', content='http://#{data.post.image.url}')
+		meta(property='og:image', content='http:#{data.post.image.url}')
 	meta(property='og:locale', content='zh_TW')
 	if (data.post.author)
 		meta(name="author", content="#{data.post.author.name.first}")
