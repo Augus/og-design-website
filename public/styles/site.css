@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -6844,6 +6845,14 @@ body {
   background-color: #eee;
   -webkit-font-smoothing: antialiased; }
 
+.loading-message {
+  text-align: center;
+  padding: 32px;
+  color: #595758;
+  font-size: 14px; }
+  .loading-message i {
+    font-size: 24px; }
+
 #header {
   z-index: 100;
   position: fixed;
@@ -8047,13 +8056,6 @@ body.player-open {
       color: #111D2D; }
     .blog-panel .breadcrumb li.active:before {
       color: #595758; }
-  .blog-panel .loading-message {
-    text-align: center;
-    padding: 32px;
-    color: #595758;
-    font-size: 14px; }
-    .blog-panel .loading-message i {
-      font-size: 24px; }
   .blog-panel .posts .post {
     position: relative;
     background: #fff;
