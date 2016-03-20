@@ -173,7 +173,7 @@ app.controller("RootController", function($scope, $timeout, Analytics, $location
         $scope.current = portfolio;
         $scope.isSmall = portfolio.isSmall;
         $("#player").scrollTop($scope.current.scrollTop || 0);
-        $location.search('portfolio', index);
+        $location.search('portfolio', index).hash('showcases');
     };
 
     $scope.next = function () {
