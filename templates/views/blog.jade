@@ -84,7 +84,7 @@ block content
 																		span.author #{post.author.name.first}
 								h2: a(href='/blog/post/{{post.slug}}') {{post.title}}
 								.shareaholic-canvas(data-app='share_buttons', data-app-id='24082972')
-								.post-content {{post.content.brief}}
+								.post-content(ng-bind="post.content.brief")
 								p.read-more: a(href='/blog/post/{{post.slug}}') 
 									閱讀全文 
 									i.zmdi.zmdi-chevron-right
