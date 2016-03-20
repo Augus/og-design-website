@@ -31,6 +31,16 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
+.loading-message {
+	text-align: center;
+	padding: 32px;
+	color: $gray-color;
+	font-size: 14px;
+	i {
+		font-size: 24px;
+	}
+}
+
 #header {
 	z-index: 100;
 	position: fixed;

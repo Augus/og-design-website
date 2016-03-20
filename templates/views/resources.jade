@@ -13,7 +13,9 @@ block opengraph
 
 block content
 	.container(ng-app='ResouceApp', ng-controller="ResourceController", ng-init="init()", ng-cloak, w-mousetrap="{'f': search, 'cmd+f': search}"): .row.resource-panel
-		.col-md-3
+		.col-md-12
+			.loading-message(ng-if="isLoading"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
+		.col-md-3(ng-show="categories.length > 0")
 			.button.button-block.green.submit-button(open-modal="submit-resource-modal")
 				i.zmdi.zmdi-mail-send 
 				span 提供內容給我們
@@ -36,7 +38,7 @@ block content
 					li(class=(category.isActive ? 'active' : null)): a(href='#')
 						span #{category.name}
 						span.count #{category.count}
-		.col-md-9
+		.col-md-9(ng-show="!isLoading")
 			.row.search
 				.col-md-12
 					.search-resource
