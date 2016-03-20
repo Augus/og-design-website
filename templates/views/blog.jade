@@ -134,6 +134,8 @@ block content
 					a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name + '(' +cat.postCount + ')'
 
 block js
+	script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js')
+	script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js')
 	script(src='/js/ng-infinite-scroll.min.js')
 	script(src='/js/blog.js')
 	script.
