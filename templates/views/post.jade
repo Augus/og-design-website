@@ -11,7 +11,7 @@ block opengraph
 		meta(property='og:image', content='#{data.post.image.url}')
 	meta(property='og:locale', content='zh_TW')
 	if (data.post.author)
-		meta(name="author", content="#{data.post.author}")
+		meta(name="author", content="#{data.post.author.name.first}")
 
 block content
 	.container: .row.blog-panel
