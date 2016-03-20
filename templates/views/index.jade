@@ -59,7 +59,7 @@ block content
 				p 我們對於每一項作品，都盡全力去執行，並且將做到最高品質。
 				.row.gallery
 					.row.clear
-						.col-md-3(ng-repeat='porfolio in porfolios')
+						.col-md-3(ng-repeat='porfolio in porfolios', ng-class="{'small': isSmall}")
 							a(ng-click='openPlayer(porfolio, $index)')
 								.project
 									.thumb(style='background-image: url({{porfolio.cover.url}})')
