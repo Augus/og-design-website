@@ -42,7 +42,7 @@ block content
 					li(class=(category.isActive ? 'active' : null)): a(href='#')
 						span #{category.name}
 						span.count #{category.count}
-		.col-md-9
+		.col-md-9(ng-show="!isLoading")
 			.row.search
 				.col-md-12
 					.search-resource
