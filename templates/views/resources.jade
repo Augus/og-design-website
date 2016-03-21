@@ -42,7 +42,7 @@ block content
 					li(class=(category.isActive ? 'active' : null)): a(href='#')
 						span #{category.name}
 						span.count #{category.count}
-		.col-md-9(ng-if="!isLoading")
+		.col-md-9
 			.row.search
 				.col-md-12
 					.search-resource
@@ -60,8 +60,8 @@ block content
 							i.zmdi.zmdi-fire
 							推薦
 						//- .thumb(ng-if="resource.image", style="background-image:url({{resource.image.url}})")
-						.thumb(ng-show="resource.image", lazy-img="{{resource.image.url}}")
-						.thumb(ng-show="!resource.image"): .url{{resource.url | domain}}
+						.thumb(ng-if="resource.image", lazy-img="{{resource.image.url}}")
+						.thumb(ng-if="!resource.image"): .url{{resource.url | domain}}
 						//- .overlay: span 
 						//- 	.icon: i.zmdi.zmdi-open-in-new
 						//- 	開啟連結
