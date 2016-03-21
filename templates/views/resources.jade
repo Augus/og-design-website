@@ -16,9 +16,7 @@ block content
 		.col-md-12
 			.loading-message(ng-if="isLoading"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
 		.col-md-3(ng-show="categories.length > 0")
-			.button.button-block.green.submit-button(open-modal="submit-resource-modal")
-				i.zmdi.zmdi-mail-send 
-				span 我想提供新資源
+			
 			.resource-categories.hidden-xs
 				//- label 分類
 				ul
@@ -28,6 +26,12 @@ block content
 					li(ng-repeat='category in categories' ng-class="{'active': category.id == currentCategory}" ng-click="filter(category)"): a(href='')
 						span {{category.name}}
 						span.count {{category.count}}
+			.about-resource
+				h4 關於設計資源總匯
+				p 奧革設計精心整理了各式各樣的設計資源，有各種靈感、資源、工具，如果你喜歡這份整理嗎，幫我們分享給更多的人知道：）
+				.button.button-block.green.submit-button(open-modal="submit-resource-modal")
+					//- i.zmdi.zmdi-mail-send 
+					span 提供設計資源
 			//- .resource-categories: ul
 				//- label 排序
 				//- li.active(ng-click="filter()"): a(href='')
