@@ -1,5 +1,5 @@
 
-var app = angular.module("LandingApp", ['angular-google-analytics']);
+var app = angular.module("LandingApp", ['angular-google-analytics', 'angularLazyImg']);
 
 app.config(function($locationProvider, AnalyticsProvider) {
     // $locationProvider.html5Mode(false).hashPrefix('!');

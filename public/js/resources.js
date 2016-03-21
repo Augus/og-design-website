@@ -1,4 +1,4 @@
-var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', 'ngModal'])
+var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', 'ngModal', 'angularLazyImg'])
 .filter('domain', function() {
     return function(input) {
         var a = document.createElement('a');
