@@ -263,13 +263,6 @@ form {
 	background-position: center;
 	padding: 25px 0;
 
-	@media screen and (max-width: 768px) {
-	    max-height: 80vh;
-    	min-height: 480px;
-		.slogan {
-			width: 80%;
-		}
-	}
 	// @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
 		
 	// }
@@ -372,19 +365,19 @@ form {
 .feature-section {
 	padding: 80px 20px;
 	background-color: #fff;
-	&.first {
-		padding: 200px;
-		.feature-content {
-			max-width: 600px;
-			h2 {
-				// color: #fff;
-			}
-			p {
-				// color: #eee;
-				line-height: 2em;
-			}
-		}
-	}
+	// &.first {
+	// 	padding: 200px;
+	// 	.feature-content {
+	// 		max-width: 600px;
+	// 		h2 {
+	// 			// color: #fff;
+	// 		}
+	// 		p {
+	// 			// color: #eee;
+	// 			line-height: 2em;
+	// 		}
+	// 	}
+	// }
 	&.contact {
 		position: relative;
 		background-image: url(../images/contact.jpg);
@@ -527,7 +520,6 @@ form {
 			color: $dark-color;
 			font-size:32px;
 			font-weight: 600;
-			// margin-bottom: 20px;
 			margin: 0 auto 20px;
 		}
 		p {
@@ -552,6 +544,39 @@ form {
 			&.button-large {
 				min-width: 240px;
 			}
+		}
+		@media screen and (max-width: 768px) {
+			h2 {
+				font-size: 24px;
+			}
+			p {
+				font-size: 16px;
+			}
+		}
+	}
+}
+
+.launch-screen {
+	@media screen and (max-width: 768px) {
+	    max-height: 80vh;
+    	min-height: 480px;
+    	background-image: url(/images/small-bg.jpg);
+    	&:before {
+    		background-color: transparent;
+    	}
+		.slogan {
+			margin-top: 40px;
+			width: 80%;
+			h2 {
+				font-size: 24px;
+				margin-bottom: 12px;
+			}
+			p {
+			    line-height: 1.7;
+			}
+		}
+		.aniWrap {
+			display: none;
 		}
 	}
 }
@@ -640,6 +665,18 @@ form {
 			font-size:14px;
 			line-height: 1.8em;
 			color: $gray-color;
+		}
+	}
+	@media screen and (max-width: 768px) { 
+		margin-top: 40px;
+		.service {
+			.thumb {
+				margin-bottom: 0;
+			}
+			p.descript {
+				font-size: 16px;
+			}
+			margin-bottom: 40px;
 		}
 	}
 }

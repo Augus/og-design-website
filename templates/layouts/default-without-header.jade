@@ -69,8 +69,8 @@ html(lang="zh-Hant-TW")
 						.navbar-header
 							button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
 								i.zmdi.zmdi-menu
-							a.navbar-brand(ng-show="!transparent" href='/'): img(src='/images/logo.png', alt='奧革設計' width='143')
-							a.navbar-brand(ng-show="transparent" href='/'): img(src='/images/logo-white.png', alt='奧革設計' width='143')
+							a.navbar-brand.color(href='/'): img(src='/images/logo.png', alt='奧革設計' width='143')
+							a.navbar-brand.black(href='/'): img(src='/images/logo-white.png', alt='奧革設計' width='143')
 						.collapse.navbar-collapse
 							ul.nav.navbar-nav.navbar-right
 								each link in navLinks
@@ -78,6 +78,7 @@ html(lang="zh-Hant-TW")
 								if user
 									if user.canAccessKeystone
 										li: a(href='/keystone', target='_blank') 管理後台
+								li.hidden-lg.hidden-md.hidden-sm: a(href='/contact') 聯絡我們
 								li.cta.hidden-xs: a(href='/#contact') 聯絡我們
 
 			block content

@@ -11,6 +11,11 @@
 		}
 	}
     // background-attachment: fixed;
+    @media screen and (max-width: 768px) { 
+    	.contact-form {
+    		margin-bottom: 20px;
+    	}	
+    }
 	.contact-form {
 		overflow: hidden;
 		background-color: #fff;
@@ -18,7 +23,7 @@
 		text-align: left;
 		border-radius: 4px;
 		overflow: hidden;
-		height: 380px; 
+		min-height: 380px;
 		input, textarea {
 			display: block;
 			width: 100%;
