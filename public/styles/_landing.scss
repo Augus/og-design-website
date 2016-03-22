@@ -365,6 +365,9 @@ form {
 .feature-section {
 	padding: 80px 20px;
 	background-color: #fff;
+	@media screen and (max-width: 768px) {
+		padding: 40px 20px;
+	}
 	// &.first {
 	// 	padding: 200px;
 	// 	.feature-content {
@@ -687,12 +690,23 @@ form {
 	@media screen and (max-width: 768px) { 
 		overflow: auto;
 	    min-height: auto;
+	    -webkit-overflow-scrolling: touch;
 		.wrap {
-		    width: 2600px;
+	        width: 3200px;
 			.porfolio {
-				width: 200px;
-				height: 144px;
+				float: left;
+				width: 240px;
+				height: 172px;
 				display: inline-block;
+				padding: 0;
+		    	margin-right: 20px;
+		    	.project {
+		    		.thumb {
+		    			&:after {
+		    				opacity: 0;
+			    		}
+		    		}
+		    	}
 			}
 		}
 	}
