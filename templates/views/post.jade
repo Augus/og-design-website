@@ -44,7 +44,19 @@ block content
 					.post-content: h4 <br>分享這篇文章
 					.shareaholic-canvas(data-app='share_buttons', data-app-id='24082972')
 		.col-sm-3.col-md-3
+			.post-list.recent
+				h6 近期文章
+				each post in data.posts
+					p
+						a(href='/blog/post/' + post.slug)
+							i.zmdi.zmdi-chevron-right
+							span #{post.title}
 			.fb-page(data-href="https://www.facebook.com/ogdesign.tw/", data-width="100%" , data-hide-cover="false", data-show-facepile="false", data-show-posts="true", style="height: 400px; margin-bottom: 20px;")
+
+
+							
+
+				
 		//- article
 		//- 	p: a(href='/blog') &larr; back to the blog
 		//- 	hr

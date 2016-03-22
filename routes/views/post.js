@@ -28,6 +28,29 @@ exports = module.exports = function(req, res) {
 		});
 		
 	});
+
+	view.on('init', function(next) {
+		
+		var q = keystone.list('Post').paginate({
+				page: req.query.page || 1,
+				perPage: 8,
+				maxPages: 8
+			})
+			.where('state', 'published')
+			.sort('-publishedDate')
+			.populate('author categories');
+		
+		if (locals.data.category) {
+			q.where('categories').in([locals.data.category]);
+		}
+		
+		q.exec(function(err, results) {
+			locals.data.posts = results;
+			console.log(results);
+			next(err);
+		});
+		
+	});
 	
 	// Load other posts
 	view.on('init', function(next) {
@@ -36,6 +59,7 @@ exports = module.exports = function(req, res) {
 		
 		q.exec(function(err, results) {
 			locals.data.posts = results;
+			console.log(results);
 			next(err);
 		});
 		
