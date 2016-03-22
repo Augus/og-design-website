@@ -13,10 +13,10 @@ block opengraph
 
 block content
 	.container(ng-app='ResouceApp', ng-controller="ResourceController", ng-init="init()", ng-cloak, w-mousetrap="{'f': search, 'cmd+f': search}"): .row.resource-panel
-		.col-md-12
-			.loading-message(ng-if="isLoading"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
-		.col-md-3(ng-show="categories.length > 0")
-			
+		.col-md-3(ng-show="!isLoading && categories.length > 0")
+			.button.button-block.green.submit-button(open-modal="submit-resource-modal")
+				//- i.zmdi.zmdi-mail-send 
+				span 提供設計資源
 			.resource-categories.hidden-xs
 				//- label 分類
 				ul
@@ -29,9 +29,6 @@ block content
 			.about-resource
 				h4 關於設計資源總匯
 				p 奧革設計精心整理了各式各樣的設計資源，有各種靈感、資源、工具，如果你喜歡這份整理嗎，幫我們分享給更多的人知道：）
-				.button.button-block.green.submit-button(open-modal="submit-resource-modal")
-					//- i.zmdi.zmdi-mail-send 
-					span 提供設計資源
 			//- .resource-categories: ul
 				//- label 排序
 				//- li.active(ng-click="filter()"): a(href='')
@@ -83,6 +80,8 @@ block content
 							.info
 								h4.title #{resource.title}
 								p.description #{resource.description}
+		.col-md-12
+			.loading-message(ng-if="isLoading"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
 		div(ng-modal='submit-resource-modal')
 			.submit-resource-modal.mdl-modal.mdl-effect-19(ng-controller="SubmitResourceController" ng-class="{'mdl-show': isOpen}")
 				.mdl-content
