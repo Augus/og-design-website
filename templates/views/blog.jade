@@ -44,7 +44,7 @@ block content
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
 			else
-				if data.posts.results.length
+				//- if data.posts.results.length
 					//- if data.posts.totalPages > 1
 					//- 	h4.text-weight-normal Showing 
 					//- 		strong #{data.posts.first}
@@ -55,44 +55,44 @@ block content
 					//- 		|  posts.
 					//- else
 					//- 	h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
-					.posts(infinite-scroll="myPagingFunction()", infinite-scroll-distance="0", infinite-scroll-disabled="isLoadingPost || noMorePost")
-						.post(ng-if="posts", ng-repeat="post in posts")
-							//- if post.image.exists
-							a(ng-if="post.image", href='/blog/post/{{post.slug}}')
-								.thumb(style="background-image:url({{post.image.url}})")
-							.info
-								p.metas
-									span(ng-if="post.publishedDate") {{post.publishedDate | date:'MMM d, y' | uppercase}} 
-									span(ng-if="post.author") BY 
-										span.author {{post.author.name.first | uppercase}} 
-								h2: a(href='/blog/post/{{post.slug}}') {{post.title}}
-								//- .shareaholic-canvas(data-app='share_buttons', data-app-id='24082972')
-								.post-content(ng-bind="post.content.brief")
-								p.read-more: a(href='/blog/post/{{post.slug}}') 
-									閱讀全文 
-									i.zmdi.zmdi-chevron-right
+				.posts(infinite-scroll="myPagingFunction()", infinite-scroll-distance="0", infinite-scroll-disabled="isLoadingPost || noMorePost")
+					.post(ng-if="posts", ng-repeat="post in posts")
+						//- if post.image.exists
+						a(ng-if="post.image", href='/blog/post/{{post.slug}}')
+							.thumb(style="background-image:url({{post.image.url}})")
+						.info
+							p.metas
+								span(ng-if="post.publishedDate") {{post.publishedDate | date:'MMM d, y' | uppercase}} 
+								span(ng-if="post.author") BY 
+									span.author {{post.author.name.first | uppercase}} 
+							h2: a(href='/blog/post/{{post.slug}}') {{post.title}}
+							//- .shareaholic-canvas(data-app='share_buttons', data-app-id='24082972')
+							.post-content(ng-bind="post.content.brief")
+							p.read-more: a(href='/blog/post/{{post.slug}}') 
+								閱讀全文 
+								i.zmdi.zmdi-chevron-right
 
-						.loading-message(ng-if="noMorePost") 沒有更多文章啦！
-						.loading-message(ng-if="isLoadingPost"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
+					.loading-message(ng-if="noMorePost") 沒有更多文章啦！
+					.loading-message(ng-if="isLoadingPost"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
 
-					//- if data.posts.totalPages > 1
-					//- 	ul.pagination
-					//- 		if data.posts.previous
-					//- 			li: a(href='?page=' + data.posts.previous): span.glyphicon.glyphicon-chevron-left
-					//- 		else
-					//- 			li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
-					//- 		each p, i in data.posts.pages
-					//- 			li(class=data.posts.currentPage == p ? 'active' : null)
-					//- 				a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
-					//- 		if data.posts.next
-					//- 			li: a(href='?page=' + data.posts.next): span.glyphicon.glyphicon-chevron-right
-					//- 		else
-					//- 			li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
-				else
-					if data.category
-						h3.text-muted There are no posts in the category #{data.category.name}.
-					else
-						h3.text-muted There are no posts yet.
+				//- if data.posts.totalPages > 1
+				//- 	ul.pagination
+				//- 		if data.posts.previous
+				//- 			li: a(href='?page=' + data.posts.previous): span.glyphicon.glyphicon-chevron-left
+				//- 		else
+				//- 			li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+				//- 		each p, i in data.posts.pages
+				//- 			li(class=data.posts.currentPage == p ? 'active' : null)
+				//- 				a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
+				//- 		if data.posts.next
+				//- 			li: a(href='?page=' + data.posts.next): span.glyphicon.glyphicon-chevron-right
+				//- 		else
+				//- 			li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
+				//- else
+				//- 	if data.category
+				//- 		h3.text-muted There are no posts in the category #{data.category.name}.
+				//- 	else
+				//- 		h3.text-muted There are no posts yet.
 			//- nav
 			//- 	ul.pagination
 			//- 		li: a(href="#", aria-label="Previous"): span(aria-hidden="true") 1
