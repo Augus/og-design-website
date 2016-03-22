@@ -688,7 +688,8 @@ form {
 	min-height: 560px;
 	padding-top: 30px;
 	@media screen and (max-width: 768px) { 
-		overflow: auto;
+		overflow-x: auto;
+		overflow-y: hidden;
 	    min-height: 240px;
 	    -webkit-overflow-scrolling: touch;
 		.wrap {
