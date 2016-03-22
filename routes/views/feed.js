@@ -24,7 +24,7 @@ exports = module.exports = function(req, res) {
 	        feed.addItem({
 	            title: posts[key].title,
 	            link: '/blog/post/' + posts[key].slug,
-	            description: posts[key].content.brief,
+	            description: posts[key].content.full,
 	            author: [{
 	                name: posts[key].author.name.first,
 	            }],
