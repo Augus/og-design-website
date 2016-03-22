@@ -543,12 +543,15 @@ body {
 				top: 12px;
 				right: 0;
 				background-color: $main-color;
+				// background-color: #F44336;
 				color: #fff;
-				padding: 6px 12px;
+				padding: 4px 8px;
 				transition: all ease 250ms;
 				font-size: 12px;
+				border-radius: 3px 0 0 3px;
 				i {
 					margin-right: 8px;
+					font-size: 14px;
 				}
 			}
 			.info {

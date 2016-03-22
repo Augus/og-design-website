@@ -55,7 +55,7 @@ block content
 					a.resource(ng-href='{{resource.url}}?utm_source=ogdesign.tw', target='_blank', ng-click="openResource($event, resource)")
 						.tag.recommend(ng-if='resource.isRecommend') 
 							i.zmdi.zmdi-fire
-							推薦
+							span 推
 						//- .thumb(ng-if="resource.image", style="background-image:url({{resource.image.url}})")
 						.thumb(ng-if="resource.image", lazy-img="{{resource.image.url}}")
 						.thumb(ng-if="!resource.image"): .url{{resource.url | domain}}
