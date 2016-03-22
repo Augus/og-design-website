@@ -20,10 +20,10 @@ block content
 			.resource-categories.hidden-xs
 				//- label 分類
 				ul
-					li(ng-click="filter()", ng-class="{'active': !currentCategory}"): a(href='')
+					li(ng-click="filter()", ng-class="{'active': !currentCategory}"): a()
 						span 全部
 						span.count {{resources.length}}
-					li(ng-repeat='category in categories' ng-class="{'active': category.id == currentCategory}" ng-click="filter(category)"): a(href='')
+					li(ng-repeat='category in categories' ng-class="{'active': category.id == currentCategory}" ng-click="filter(category)"): a()
 						span {{category.name}}
 						span.count {{category.count}}
 			.about-resource

@@ -12,7 +12,7 @@ var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', '
 
 		$scope.urlError = false;
 		$scope.titleError = false;
-
+        
 		if (!is.url($scope.newResourceUrl)) {
 			$scope.urlError = true;
 			return;
@@ -53,11 +53,12 @@ var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', '
         });
 	};
 })
-.controller("ResourceController", function ($scope, $http, $timeout) {
+.controller("ResourceController", function ($scope, $http, $timeout, $location) {
 
 	$scope.keyword = "";
 	$scope.categories = [];
 	$scope.resources = [];
+    $scope.currentCategory = $location.search().category || undefined;
 
 	$scope.init = function () {
 
@@ -95,9 +96,11 @@ var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', '
 	$scope.filter = function (category) {
 		if (category) {
 			$scope.currentCategory = category.id;
+            $location.search('category', category.id);
 		}
 		else {
 			$scope.currentCategory = undefined;	
+            $location.search('category', null);
 		}
 	};
 
