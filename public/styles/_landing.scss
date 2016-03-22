@@ -684,6 +684,18 @@ form {
 .gallery {
 	min-height: 560px;
 	padding-top: 30px;
+	@media screen and (max-width: 768px) { 
+		overflow: auto;
+	    min-height: auto;
+		.wrap {
+		    width: 2600px;
+			.porfolio {
+				width: 200px;
+				height: 144px;
+				display: inline-block;
+			}
+		}
+	}
 	.project {
 		// height: 180px;
 		border-radius: 5px;

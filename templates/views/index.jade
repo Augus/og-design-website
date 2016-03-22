@@ -58,13 +58,13 @@ block content
 				h2 設計案例
 				p 我們對於每一項作品，都盡全力去執行，並且將做到最高品質。
 				.row.gallery
-					.row.clear
-						.col-md-3(ng-repeat='porfolio in porfolios', ng-class="{'small': isSmall}")
+					.wrap
+						.col-md-3.porfolio(ng-repeat='porfolio in porfolios', ng-class="{'small': isSmall}")
 							a(ng-click='openPlayer(porfolio, $index)')
 								.project
-									.thumb(lazy-img='{{porfolio.cover.url}}')
+									.thumb(style='background-image: url({{porfolio.cover.url}})')
 									.title {{porfolio.title}}
-					a.button.button-outline.button-white.rounded(href='https://www.behance.net/og-design', target='_blank') 查看更多
+					a.button.button-outline.button-white.rounded.hidden-xs(href='https://www.behance.net/og-design', target='_blank') 查看更多
 
 	#testimonials.hidden-xs
 		.feature-section.gray
