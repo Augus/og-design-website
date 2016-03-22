@@ -59,7 +59,7 @@ block content
 					.post(ng-if="posts", ng-repeat="post in posts")
 						//- if post.image.exists
 						a(ng-if="post.image", href='/blog/post/{{post.slug}}')
-							.thumb(style="background-image:url({{post.image.url}})")
+							.thumb(lazy-img="{{post.image.url}}")
 						.info
 							p.metas
 								span(ng-if="post.publishedDate") {{post.publishedDate | date:'MMM d, y' | uppercase}} 
