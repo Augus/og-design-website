@@ -262,6 +262,24 @@ form {
 	background-repeat: no-repeat;
 	background-position: center;
 	padding: 25px 0;
+
+	@media screen and (max-width: 768px) {
+	    max-height: 80vh;
+    	min-height: 480px;
+		.slogan {
+			width: 80%;
+		}
+	}
+	// @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+		
+	// }
+	// @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+		
+	// }
+	// @media (min-width: @screen-lg-min) {
+		
+	// }
+
 	&:before {
 		z-index: 1;
 		position: absolute;
@@ -275,7 +293,6 @@ form {
 		background-size: 3px;
 		opacity: 0.55;
 	}
-
 	.video-container {
 		z-index: 0;
 		position: absolute;
