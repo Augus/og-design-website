@@ -163,7 +163,7 @@ exports = module.exports = function(app) {
 	app.get('/getResources', function (req, res) {
 
 		var resources = [];
-		var q = keystone.list('Resource').model.find().sort('-isPinned').limit('300');
+		var q = keystone.list('Resource').model.find().sort({'isPinned': -1, 'image': -1}).limit('300');
 		
 		q.exec(function(err, results) {
 			res.header("Content-Type", "application/json; charset=utf-8");
