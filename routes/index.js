@@ -26,162 +26,168 @@ var importRoutes = keystone.importer(__dirname);
 var AWS = require('aws-sdk');
 var uniqid = require('uniqid');
 
+
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 var routes = {
-	views: importRoutes('./views')
+    views: importRoutes('./views')
 };
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
-	
-	// Views
-	app.get('/', routes.views.index);
-	app.get('/resources', routes.views.resources);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
-	app.all('/contact', routes.views.contact);
-	app.post('/uploadEditorImage', function (req, res) {
 
-		AWS.config.update({
-	        accessKeyId: keystone.get("s3 config").key,
-	        secretAccessKey: keystone.get("s3 config").secret
-	    });
+    // Views
+    app.get('/', routes.views.index);
+    app.get('/resources', routes.views.resources);
+    app.get('/blog/:category?', routes.views.blog);
+    app.get('/blog/post/:post', routes.views.post);
+    app.all('/contact', routes.views.contact);
 
-	    var bodyStream = fs.createReadStream(req.files.file.path),
-	    	fileName = uniqid(),
-	    	ext = "." + req.files.file.originalname.substr(req.files.file.originalname.lastIndexOf('.') + 1);
+    // RSS Feed
+    app.get('/feed', routes.views.feed);
 
-	    var s3 = new AWS.S3({
-	        params: {
-	            Bucket: keystone.get("s3 config").bucket,
-	            Key:  fileName + ext, //檔案名稱
-	            ACL: 'public-read' //檔案權限
-	        }
-	    });
+    app.post('/uploadEditorImage', function(req, res) {
 
-	    s3.upload({
-	        Body: bodyStream
-	    }).on('httpUploadProgress', function(evt) {}).send(function(err, data) {
-	        var sendResult = function () {
-				if (data.err) {
-					res.send({ error: { message: "something error" } });
-				} else {
-					res.send({ image: { url: data.Location } });
-				}
-			};
-	        res.format({
-				html: sendResult,
-				json: sendResult
-			});
-	    });
-	});
+        AWS.config.update({
+            accessKeyId: keystone.get("s3 config").key,
+            secretAccessKey: keystone.get("s3 config").secret
+        });
 
-	app.post('/submitResource', function (req, res) {
-		
-		var url = req.param('url');
-		var title = req.param('title');
-		var description = req.param('description');  
+        var bodyStream = fs.createReadStream(req.files.file.path),
+            fileName = uniqid(),
+            ext = "." + req.files.file.originalname.substr(req.files.file.originalname.lastIndexOf('.') + 1);
 
-		if (!url) {
-			res.end( JSON.stringify({state: 'Please input url!'}));
-			return;
-		}
+        var s3 = new AWS.S3({
+            params: {
+                Bucket: keystone.get("s3 config").bucket,
+                Key: fileName + ext, //檔案名稱
+                ACL: 'public-read' //檔案權限
+            }
+        });
 
-		keystone.createItems({
-			ResourceIssue: [{
-				'url': url,
-				'title': title,
-				'description': description,
-			}]
-		}, function(err, stats) {
-			stats && console.log(stats.message);
-		});
+        s3.upload({
+            Body: bodyStream
+        }).on('httpUploadProgress', function(evt) {}).send(function(err, data) {
+            var sendResult = function() {
+                if (data.err) {
+                    res.send({ error: { message: "something error" } });
+                } else {
+                    res.send({ image: { url: data.Location } });
+                }
+            };
+            res.format({
+                html: sendResult,
+                json: sendResult
+            });
+        });
+    });
 
-		res.end( JSON.stringify({state: 'success'}));
-	});
+    app.post('/submitResource', function(req, res) {
 
-	// results[0].view++;
-	// results[0].save();
+        var url = req.param('url');
+        var title = req.param('title');
+        var description = req.param('description');
 
-	// 增加 view 數量
-	app.get('/view/:resourceId', function (req, res) {
-		var resourceId = req.params.resourceId;
-		var q = keystone.list('Resource').model.findById(resourceId);
-		q.exec(function(err, resource) {
-			resource.view++;
-			resource.save();
-			res.header("Content-Type", "application/json; charset=utf-8");
-			res.end( JSON.stringify(resource));
-		});
-	});
+        if (!url) {
+            res.end(JSON.stringify({ state: 'Please input url!' }));
+            return;
+        }
 
-	// 取得作品集
-	app.get('/getPortfolios', function (req, res) {
+        keystone.createItems({
+            ResourceIssue: [{
+                'url': url,
+                'title': title,
+                'description': description,
+            }]
+        }, function(err, stats) {
+            stats && console.log(stats.message);
+        });
 
-		var resources = [];
-		var q = keystone.list('Portfolio').model.find().sort('sortOrder').limit('300');
-		
-		q.exec(function(err, results) {
-			res.header("Content-Type", "application/json; charset=utf-8");
-			res.end( JSON.stringify(results));
-		});
-	});
+        res.end(JSON.stringify({ state: 'success' }));
+    });
 
-	// 取得文章列表
-	app.get('/getArticles', function (req, res) {
+    // results[0].view++;
+    // results[0].save();
 
-		var resources = [];
-		var start = req.param('start') || 0;
-		var len = req.param('len') || '4';
-		var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').populate('author').skip(start).limit(len);
+    // 增加 view 數量
+    app.get('/view/:resourceId', function(req, res) {
+        var resourceId = req.params.resourceId;
+        var q = keystone.list('Resource').model.findById(resourceId);
+        q.exec(function(err, resource) {
+            resource.view++;
+            resource.save();
+            res.header("Content-Type", "application/json; charset=utf-8");
+            res.end(JSON.stringify(resource));
+        });
+    });
 
-		q.exec(function(err, results) {
-			res.header("Content-Type", "application/json; charset=utf-8");
-			res.end( JSON.stringify(results));
-		});
-	});
+    // 取得作品集
+    app.get('/getPortfolios', function(req, res) {
 
-	// 取得資源列表
-	app.get('/getResources', function (req, res) {
+        var resources = [];
+        var q = keystone.list('Portfolio').model.find().sort('sortOrder').limit('300');
 
-		var resources = [];
-		var q = keystone.list('Resource').model.find().sort({'isPinned': -1, 'image': -1}).limit('300');
-		
-		q.exec(function(err, results) {
-			res.header("Content-Type", "application/json; charset=utf-8");
-			res.end( JSON.stringify(results));
-		});
-	});
+        q.exec(function(err, results) {
+            res.header("Content-Type", "application/json; charset=utf-8");
+            res.end(JSON.stringify(results));
+        });
+    });
 
-	// 取得分類列表
-	app.get('/getCategories', function (req, res) {
+    // 取得文章列表
+    app.get('/getArticles', function(req, res) {
 
-		var categories = [];
-		keystone.list('ResourceCategory').model.find().exec(function(err, results) {
-			results.forEach(function(category, index) {
-				keystone.list('Resource').model.count().where('categories').in([category.id]).exec(function(err, count) {
-					var object = {
-						id: category._id,
-						name: category.name,
-						count: count,
-						sortOrder: category.sortOrder
-					};
-					categories.push(object);
-					if (index == results.length - 1) {
-						categories.sort(function(a, b){return a.sortOrder - b.sortOrder});
-						res.header("Content-Type", "application/json; charset=utf-8");
-						res.end( JSON.stringify(categories));
-					}
-				});
-			});
-		});
-	});
-	
-	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
-	// app.get('/protected', middleware.requireUser, routes.views.protected);
-	
+        var resources = [];
+        var start = req.param('start') || 0;
+        var len = req.param('len') || '4';
+        var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').populate('author').skip(start).limit(len);
+
+        q.exec(function(err, results) {
+            res.header("Content-Type", "application/json; charset=utf-8");
+            res.end(JSON.stringify(results));
+        });
+    });
+
+    // 取得資源列表
+    app.get('/getResources', function(req, res) {
+
+        var resources = [];
+        var q = keystone.list('Resource').model.find().sort({ 'isPinned': -1, 'image': -1 }).limit('300');
+
+        q.exec(function(err, results) {
+            res.header("Content-Type", "application/json; charset=utf-8");
+            res.end(JSON.stringify(results));
+        });
+    });
+
+    // 取得分類列表
+    app.get('/getCategories', function(req, res) {
+
+        var categories = [];
+        keystone.list('ResourceCategory').model.find().exec(function(err, results) {
+            results.forEach(function(category, index) {
+                keystone.list('Resource').model.count().where('categories').in([category.id]).exec(function(err, count) {
+                    var object = {
+                        id: category._id,
+                        name: category.name,
+                        count: count,
+                        sortOrder: category.sortOrder
+                    };
+                    categories.push(object);
+                    if (index == results.length - 1) {
+                        categories.sort(function(a, b) {
+                            return a.sortOrder - b.sortOrder });
+                        res.header("Content-Type", "application/json; charset=utf-8");
+                        res.end(JSON.stringify(categories));
+                    }
+                });
+            });
+        });
+    });
+
+    // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
+    // app.get('/protected', middleware.requireUser, routes.views.protected);
+
 };

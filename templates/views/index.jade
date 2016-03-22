@@ -2,13 +2,13 @@ extends ../layouts/default-without-header
 
 block opengraph
 	//- meta(property='fb:app_id', content='138566025676')
-	title= title || '奧革設計 | 創業團隊的設計夥伴'
+	title= title || '奧革設計 - 創業公司的設計夥伴'
 	meta(name="description", content="奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。")
 	meta(name="keywords", content="使用者經驗設計,網頁設計,新創")
-	meta(property='og:site_name', content='奧革設計 | 創業團隊的設計夥伴')
+	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
 	meta(property='og:type', content='website')
 	meta(property='og:url', content='')
-	meta(property='og:title', content='奧革設計 | 創業團隊的設計夥伴')
+	meta(property='og:title', content='奧革設計 - 創業公司的設計夥伴')
 	meta(property='og:description', content='奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。')
 	meta(property='og:image', content='/images/fb-cover.jpg')
 	meta(property='og:locale', content='zh_TW')
@@ -139,9 +139,10 @@ block content
 						.contact-info
 							.info-title 直接與我們聯繫
 							.info-section
-								.info-item 電話 : 0927-598-161
+								.info-item 電話 : 
+									a(href="tel:0928598161") 0927-598-161
 								.info-item 信箱 : 
-									a(href="mailto:augus@ogdesign", target="_blank") augus@ogdesign.tw
+									a(href="mailto:augus@ogdesign.tw", target="_blank") augus@ogdesign.tw
 								.info-item 地址 :
 									a(href="https://goo.gl/maps/onVLLLtmquj", target="_blank") 新北市三重區正義北路215號2樓
 								.info-item 粉絲團 : 
