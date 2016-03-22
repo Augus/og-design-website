@@ -17,12 +17,14 @@
  * See the Express application routing documentation for more information:
  * http://expressjs.com/api.html#app.VERB
  */
-
+var fs = require('fs');
 var keystone = require(__base + 'keystone_custom');
 var middleware = require('./middleware');
 var async = require('async');
 var extend = require('extend');
 var importRoutes = keystone.importer(__dirname);
+var AWS = require('aws-sdk');
+var uniqid = require('uniqid');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -42,57 +44,41 @@ exports = module.exports = function(app) {
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.all('/contact', routes.views.contact);
+	app.post('/uploadEditorImage', function (req, res) {
 
-	// app.get('/createResource', function (req, res) {
+		AWS.config.update({
+	        accessKeyId: keystone.get("s3 config").key,
+	        secretAccessKey: keystone.get("s3 config").secret
+	    });
 
-	// 	// keystone.createItems({
-	// 	// 	ResourceIssue: [{
-	// 	// 		'url': url,
-	// 	// 		'title': title,
-	// 	// 		'description': description,
-	// 	// 	}]
-	// 	// }, function(err, stats) {
-	// 	// 	stats && console.log(stats.message);
-	// 	// });
+	    var bodyStream = fs.createReadStream(req.files.file.path),
+	    	fileName = uniqid(),
+	    	ext = "." + req.files.file.originalname.substr(req.files.file.originalname.lastIndexOf('.') + 1);
 
-	// 	// Resource.add({
-	// 	// 	title: { type: String, label: '資源名稱' },
-	// 	// 	image: {
-	// 	// 		label: '封面', 
-	// 	// 		type: Types.S3File,
-	// 	// 		filename: function(item, filename){
-	// 	// 			// 用object id作為文件名的前綴
-	// 	// 			return item._id + '-' + filename;
-	// 	// 		}
-	// 	// 	},
-	// 	// 	description: { type: Types.Textarea, label: '資源描述' },
-	// 	// 	url: { type: Types.Url, label: '網址' },	
-	// 	// 	keywords: { type: Types.Textarea, label: '關鍵字' },
-	// 	// 	view: { type: Number, default: 0, label: '觀看人次' },
-	// 	// 	publishedDate: { type: Types.Date, index: true, label: '建立時間'},
-	// 	// 	categories: { type: Types.Relationship, ref: 'ResourceCategory', many: true, label: '資源分類' },
-	// 	// 	isRecommend: { type: Boolean, required: false, default: false, label: '是否推薦' },
-	// 	// });
+	    var s3 = new AWS.S3({
+	        params: {
+	            Bucket: keystone.get("s3 config").bucket,
+	            Key:  fileName + ext, //檔案名稱
+	            ACL: 'public-read' //檔案權限
+	        }
+	    });
 
-	// 	var result = [];
-	// 	items.forEach(function (item, index) {
-	// 		result.push({
-	// 			title: item.name,
-	// 			url: item.linkurl,
-	// 			description: item.descript,
-	// 			keywords: item.tags,
-	// 		});
-	// 	});
-
-	// 	keystone.createItems({
-	// 		Resource: result
-	// 	}, function(err, stats) {
-	// 		res.header("Content-Type", "application/json; charset=utf-8");
-	// 		res.end( JSON.stringify(stats));
-	// 		stats && console.log(stats.message);
-	// 	});
-
-	// });
+	    s3.upload({
+	        Body: bodyStream
+	    }).on('httpUploadProgress', function(evt) {}).send(function(err, data) {
+	        var sendResult = function () {
+				if (data.err) {
+					res.send({ error: { message: "something error" } });
+				} else {
+					res.send({ image: { url: data.Location } });
+				}
+			};
+	        res.format({
+				html: sendResult,
+				json: sendResult
+			});
+	    });
+	});
 
 	app.post('/submitResource', function (req, res) {
 		
