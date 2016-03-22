@@ -6,7 +6,7 @@ exports = module.exports = function(req, res) {
     var feed = new Feed({
         title: '奧革設計 - 創業公司的設計夥伴',
         description: '奧革設計是一家使用者介面設計及使用者經驗諮詢公司，我們擅長透過設計新思維創造最好的產品體驗。',
-        link: 'http://ogdesign.tw',
+        link: 'http://beta.ogdesign.tw',
         image: 'http://beta.ogdesign.tw/images/fb-cover.jpg',
         copyright: 'All rights reserved 2016, ogdesign',
         // author: {
