@@ -493,7 +493,7 @@ body {
 				background-color: #fff;
 				background-repeat: no-repeat;
 				background-position: center;
-				background-size: cover;
+				background-size: contain;
 				transition: all ease-out 300ms;
 				transform: scale(1);
 			    // -webkit-filter: grayscale(0.5);
