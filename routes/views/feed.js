@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
         link: 'http://beta.ogdesign.tw',
         image: 'http://beta.ogdesign.tw/images/fb-cover.jpg',
         copyright: 'All rights reserved 2016, ogdesign',
-        updated: Date.now();
+        updated: Date.now()
         // author: {
         //     name: 'John Doe',
         //     email: 'johndoe@example.com',
