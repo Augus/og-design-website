@@ -15,6 +15,6 @@ ResourceCategory.add({
 	name: { type: String, required: true, label: '分類名稱' },
 });
 
-ResourceCategory.relationship({ ref: 'Resource', path: 'categories' });
+ResourceCategory.relationship({ ref: 'Resource', path: 'resources', refPath: 'categories' });
 
 ResourceCategory.register();

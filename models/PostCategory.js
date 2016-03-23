@@ -15,6 +15,6 @@ PostCategory.add({
 	name: { type: String, required: true, label: '分類名稱' }
 });
 
-PostCategory.relationship({ ref: 'Post', path: 'categories' });
+PostCategory.relationship({ ref: 'Post', path: 'posts', refPath: 'categories'});
 
 PostCategory.register();
