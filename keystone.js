@@ -113,8 +113,8 @@ keystone.set('email tests', require('./routes/emails'));
 keystone.set('nav', {
 	'成功案例': ['portfolios'],
 	'文章': ['posts', 'post-categories'],
-	'設計資源': ['resources', 'resource-categories'],
-	'設計資源建議': ['resource-issues'],
+	'設計資源': ['resources', 'resource-categories', 'resource-issues'],
+	// '設計資源建議': [],
 	'使用者': 'users'
 });
 
