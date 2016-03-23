@@ -52,7 +52,7 @@ block content
 								//- ng-repeat="i in is = (r.items | filter: searchFilter)"
 			.row.resources
 				.col-sm-6.col-md-4.resource-wrap(ng-repeat='resource in rs = (resources | filter: searchFilter | filter: categoryFilter)')
-					a.resource(ng-href='{{resource.url}}?utm_source=ogdesign.tw', target='_blank', ng-click="openResource($event, resource)")
+					a.resource(ng-href='{{resource.url}}', target='_blank', ng-click="openResource($event, resource)")
 						.tag.recommend(ng-if='resource.isRecommend') 
 							i.zmdi.zmdi-fire
 							span 推
