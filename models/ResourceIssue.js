@@ -23,5 +23,5 @@ ResourceIssue.add({
 // 	return this.content.extended || this.content.brief;
 // });
 
-ResourceIssue.defaultColumns = 'title, description, publishedDate|20%';
+ResourceIssue.defaultColumns = 'title, description, url, publishedDate|20%';
 ResourceIssue.register();
