@@ -167,8 +167,10 @@ exports = module.exports = function(app) {
 
         var categories = [];
         keystone.list('ResourceCategory').model.find().exec(function(err, results) {
+        	console.log(results.length);
+        	var i = 0;
             results.forEach(function(category, index) {
-                keystone.list('Resource').model.count().where('categories').in([category.id]).exec(function(err, count) {
+                keystone.list('Resource').model.count().where('categories').in([category.id]).limit('300').exec(function(err, count) {
                     var object = {
                         id: category._id,
                         name: category.name,
@@ -176,11 +178,13 @@ exports = module.exports = function(app) {
                         sortOrder: category.sortOrder
                     };
                     categories.push(object);
-                    if (index == results.length - 1) {
+                    i++;
+                    if (i == results.length) {
                         categories.sort(function(a, b) {
                             return a.sortOrder - b.sortOrder });
                         res.header("Content-Type", "application/json; charset=utf-8");
                         res.end(JSON.stringify(categories));
+                        return;
                     }
                 });
             });
