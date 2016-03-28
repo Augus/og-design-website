@@ -58,7 +58,8 @@ block content
 							span 推
 						//- .thumb(ng-if="resource.image", style="background-image:url({{resource.image.url}})")
 						.thumb(ng-if="resource.image", lazy-img="{{resource.image.url}}")
-						.thumb(ng-if="!resource.image"): .url{{resource.url | domain}}
+						.thumb(ng-if="!resource.image")
+							.url {{resource.url | domain}}
 						//- .overlay: span 
 						//- 	.icon: i.zmdi.zmdi-open-in-new
 						//- 	開啟連結
