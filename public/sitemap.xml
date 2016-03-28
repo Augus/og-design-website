@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://www.ogdesign.tw/</loc>
+        <lastmod>2016-03-26T14:07:04+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>http://www.ogdesign.tw/blog</loc>
+        <lastmod>2016-03-26T14:07:04+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://www.ogdesign.tw/resource</loc>
+        <lastmod>2016-03-26T14:07:04+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+</urlset>
