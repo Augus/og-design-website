@@ -363,7 +363,7 @@ form {
 
 
 .feature-section {
-	padding: 80px 20px;
+	padding: 100px 20px;
 	background-color: #fff;
 	@media screen and (max-width: 768px) {
 		padding: 40px 20px;
@@ -521,15 +521,15 @@ form {
 		h2 {
 			text-align: center;
 			color: $dark-color;
-			font-size:32px;
+			font-size:28px;
 			font-weight: 600;
 			margin: 0 auto 20px;
 		}
 		p {
-			font-size:20px;
+			font-size:16px;
 			color: $gray-color;
 			line-height: 1.6em;
-			margin: 0 auto 12px;
+			margin: 0 auto 20px;
 			max-width: 600px;
 		}
 		.tags {
