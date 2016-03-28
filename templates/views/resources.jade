@@ -94,7 +94,7 @@ block content
 						.button.button-block.green(ng-show="!submitting" ng-click="submit()", ng-class="{'disable': !newResourceUrl || !newResourceTitle}") 提交
 						.button.button-block.green.disable(ng-show="submitting")
 							i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
-							提交
+							span 提交
 					.submit-resource(ng-show="isSuccess")
 						img(src="/images/accept.svg")
 						h2 提交成功啦！
