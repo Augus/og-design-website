@@ -284,7 +284,7 @@ form {
 		background-color: $dark-color;
 		background-image: url(../images/02.png);
 		background-size: 3px;
-		opacity: 0.55;
+		opacity: 0.75;
 	}
 	.video-container {
 		z-index: 0;
@@ -329,7 +329,7 @@ form {
 			letter-spacing: .5px;
 			strong {
 				margin: 0 5px;
-				color: $green-color;
+				color: lighten($main-color, 10%);
 				font-weight: bold;
 			}
 		}
@@ -861,6 +861,7 @@ form {
 		line-height: 1.6em;
 		.quote {
 			margin-bottom: 12px;
+			width: 10px;
 		}
 		.text {
 			// position: absolute;
@@ -896,11 +897,14 @@ form {
 	.profile {
 		text-align: center;
 		.company {
+			// vertical-align: middle;
+			display: block;
 			padding-top: 4px;
-			font-size: 13px;
+			font-size: 12px;
 			color: #7a7a7a;
 		}
 		.name {
+			// vertical-align: middle;
 			display: block;
 			padding-top: 12px;
 			font-size: 14px;
@@ -908,10 +912,11 @@ form {
 			font-weight: 600;
 		}
 		.thumb {
-			display: inline-block;
+			display: block;
 			width: 60px;
 			height: 60px;
-			margin-top: 4px;
+			margin: 0 auto 12px;
+			// margin-top: 4px;
 			// border: 3px solid #ccc;
 			background-size: cover;
 			background-repeat: no-repeat;
