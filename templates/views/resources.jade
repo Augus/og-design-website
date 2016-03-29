@@ -2,14 +2,15 @@ extends ../layouts/default
 
 block opengraph
 	//- meta(property='fb:app_id', content='138566025676')
-	title= title || '設計資源總匯 | 奧革設計 - 創業公司的設計夥伴'
+	title= title || '設計資源總匯 - 奧革設計'
 	meta(property='og:site_name', content='奧革設計 - 創業公司的設計夥伴')
 	meta(property='og:type', content='website')
-	meta(property='og:url', content='')
-	meta(property='og:title', content='設計資源總匯 | 奧革設計 - 創業公司的設計夥伴')
-	meta(property='og:description', content='精心整理了各式各樣的設計資源，有各種靈感、資源、工具，設計師的你別錯過了！')
+	meta(property='og:url', content='http://www.ogdesign.tw/resources')
+	meta(property='og:title', content='設計資源總匯 - 奧革設計')
+	meta(property='og:description', content='奧革設計團隊精心整理的設計師必備設計資源，收藏各式各樣的靈感、配色、資源、設計工具、免費圖庫等，設計師趕快把他收藏到書籤吧！')
 	meta(property='og:image', content='/images/fb-cover.jpg')
 	meta(property='og:locale', content='zh_TW')
+	meta(name="author", content="奧革士")
 
 block content
 	.container(ng-app='ResouceApp', ng-controller="ResourceController", ng-init="init()", ng-cloak, w-mousetrap="{'f': search, 'cmd+f': search}"): .row.resource-panel
