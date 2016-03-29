@@ -1,4 +1,4 @@
-var blogApp = angular.module("BlogApp", ['infinite-scroll', 'angularLazyImg'])
+var blogApp = angular.module("BlogApp", ['infinite-scroll', 'angularLazyImg', 'loader'])
 .controller("BlogController", function ($scope, $http, $timeout) {
 
 	var start = 0,

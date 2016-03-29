@@ -87,7 +87,10 @@ block content
 								h4.title #{resource.title}
 								p.description #{resource.description}
 		.col-md-12
-			.loading-message(ng-if="isLoading"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
+			//- .loading-message(ng-if="isLoading"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
+			div(loader, ng-if="isLoading")
+
+
 		div(ng-modal='submit-resource-modal')
 			.submit-resource-modal.mdl-modal.mdl-effect-19(ng-controller="SubmitResourceController" ng-class="{'mdl-show': isOpen}")
 				.mdl-content

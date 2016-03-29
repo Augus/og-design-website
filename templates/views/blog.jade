@@ -73,7 +73,8 @@ block content
 								i.zmdi.zmdi-chevron-right
 
 					.loading-message(ng-if="noMorePost") 沒有更多文章啦！
-					.loading-message(ng-if="isLoadingPost"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
+					//- .loading-message(ng-if="isLoadingPost"): i.zmdi.zmdi-hc-spin.zmdi-chart-donut 
+					div(loader, ng-if="isLoadingPost")
 
 				//- if data.posts.totalPages > 1
 				//- 	ul.pagination
