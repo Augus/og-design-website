@@ -16,7 +16,7 @@ app.config(function($locationProvider, AnalyticsProvider) {
     //     redirectTo: "/section-a"
     // });
     AnalyticsProvider.setAccount([{
-        tracker: 'UA-52653674-3',
+        tracker: 'UA-52653674-2',
         name: "tracker"
     }]);
 });
@@ -165,7 +165,7 @@ app.controller("RootController", function($scope, $timeout, Analytics, $location
     };
 
     $scope.goto = function (portfolio, index) {
-        Analytics.trackEvent('Portfolio', 'View', portfolio.name);
+        Analytics.trackEvent('Portfolio', 'View', portfolio.title);
         if ($scope.current) {
             $scope.current.scrollTop = $("#player").scrollTop();
         }
