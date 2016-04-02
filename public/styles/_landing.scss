@@ -281,10 +281,12 @@ form {
 		right: 0;
 		bottom: 0;
 		content: "";
-		background-color: $dark-color;
+		background-color: #222;
+		// background-color: $dark-color;
 		background-image: url(../images/02.png);
 		background-size: 3px;
-		opacity: 0.75;
+		// opacity: 0.75;
+	    opacity: 0.6;
 	}
 	.video-container {
 		z-index: 0;
@@ -323,21 +325,33 @@ form {
 		p {
 			margin: 0 auto;
 			max-width: 600px;
-			font-size: 16px;
-			line-height: 2em;
+			font-size: 18px;
+			line-height: 1.7em;
 			color: rgba(255, 255, 255, .95);
 			letter-spacing: .5px;
 			strong {
 				margin: 0 5px;
-				color: lighten($main-color, 10%);
 				font-weight: bold;
+				&:nth-child(1) {
+					color: #8cd8d0;
+				}
+				&:nth-child(2) {
+					color: #8cd8d0;
+				}
 			}
 		}
 		h2 {
 			font-size: 32px;
-			// font-weight: bold;
+			font-weight: bold;
 			letter-spacing: -0.2px;
 			margin-bottom: 20px;
+			line-height: 1.6;
+			strong {
+				margin: 0 5px;
+				color: #fff;
+				// color: lighten($main-color, 10%);
+				font-weight: bold;
+			}
 		}
 	}
 	.scroll-down {
