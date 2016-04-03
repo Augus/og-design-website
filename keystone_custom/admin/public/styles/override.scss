@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+$main-color: #55b3ad;
+// $main-color: #00af4c;
+$blue-color: #5ac6e6;
+$green-color: #c9db1f;
+$dark-color: #111D2D;
+$gray-color: #595758;
+
+body {
+    background: #f7f7f7;
+    color: #4a4a4a;
+}
+a {
+    color: $main-color;
+}
+
+.btn.btn-create {
+    background: $main-color;
+    border: none;
+    padding: 0 30px;
+    height: 44px;
+    font-size: 14px;
+    &:hover {
+        background: lighten($main-color, 10%);
+    }
+}
+
+#body {
+    background: #f7f7f7;
+    padding: 160px 20px 80px;
+    margin: 0;
+    .container {
+        padding: 40px;
+        background: #fff;
+        background-color: #fff;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.15);
+        border-radius: 3px;
+    }
+}
+
+#section-nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    height: 80px;
+    line-height: 80px;
+    .navbar-brand {
+        color: #6a6a6a;
+        padding: 0 15px;
+        margin-right: 20px;
+        line-height: 80px;
+        img {
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+        small {
+            font-size: 14px;
+            font-weight: bold;
+            // color: #6a6a6a;
+        }
+        &:hover {
+            color: #6a6a6a;
+        }
+    }
+    .navbar-nav>li, .navbar-nav>li>a {
+        &:focus {
+            color: $dark-color;
+            background-color: transparent;
+        }
+    }
+    .navbar-nav>li>a {
+        display: block;
+        color: $dark-color; 
+        padding: 0 16px 0 16px;
+        height: 80px;
+        line-height: 80px;
+        &:hover {
+            color: $dark-color;
+        }
+    }
+    .navbar-nav>.active>a, #header .navbar-nav>.active>a:hover, #header .navbar-nav>.active>a:focus {
+        background: transparent !important;
+        box-shadow: none !important;
+        color: $main-color;
+        border-bottom: 2px solid $main-color;
+        &:hover {
+            color: $main-color;
+        }
+    }
+}
+
+.keystone-lists {
+    h4 {
+        text-transform: uppercase;
+        font-size: 16px;
+        color: rgba($dark-color, 0.8);
+        // font-weight: bold;
+        margin-bottom: 24px;
+    }
+}
+
+.nav-section {
+    li {
+        font-size: 1.8em;
+        margin-bottom: .66em;
+        display: inline-block;
+        border: 1px solid #ddd;
+        // box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        color: rgba($dark-color, 0.8);
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        text-align: center;
+        font-size: 16px;
+        margin: -3px 20px 20px 0;
+        border-radius: 3px;
+        transform: translateY(3px);
+        transition: all 400ms cubic-bezier(0.48, 0, 0.3, 1.18);
+        &:hover {
+            transform: none;
+            border-color: $dark-color;
+            color: $dark-color;
+        }
+        a {
+            display: block;
+            color: rgba($dark-color, 0.8);
+            &:hover {
+                color: $dark-color;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans";
+}
+
+.page-header {
+    h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        color: $dark-color;
+    }
+}
+
+.items-list {
+    thead{
+        >tr {
+            >th {
+                border-bottom: 1px solid #ddd;
+                color: $dark-color;
+                font-weight: bold;
+            }
+        }
+    } 
+    tbody {
+        tr {
+            td {
+                padding: 12px 0;
+            }
+        }
+        a {
+            color: #4a4a4a;
+        }
+    }
+}
+
+.searchbox-field {
+    >input {
+        height: 44px;
+        -webkit-appearance: none;
+    }
+}
+.searchbox-button {
+    > .btn {
+        height: 44px;    
+    }
+}
+
+.list-toolbar .btn {
+    height: 44px;
+}

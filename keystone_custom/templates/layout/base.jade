@@ -14,6 +14,7 @@ html
 
 		//- Keystone Stylesheet
 		link(rel="stylesheet", href="/keystone/styles/keystone.min.css")
+		link(rel="stylesheet", href="/keystone/styles/override.css")
 		block css
 
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
@@ -22,20 +23,22 @@ html
 	body(id='page-' + page)
 		#wrap
 			nav(role='navigation')#header.navbar.navbar-default.navbar-static-top: .container
-				a(href=backUrl).navbar-backtobrand-trigger.hidden-xs: span.ion-arrow-left-c
-				.navbar-backtobrand-message 返回#{brand}網站
+				//- a(href=backUrl).navbar-backtobrand-trigger.hidden-xs: span.ion-arrow-left-c
+				//- .navbar-backtobrand-message 返回#{brand}網站
 				.navbar-header
 					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-headernav-collapse')
 						span.sr-only Toggle section navigation
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a(href='/keystone', class=(section == 'home' ? 'active' : null)).navbar-brand= brand 
-						small 後台
+					a(href='/keystone', class=(section == 'home' ? 'active' : null)).navbar-brand
+						img(src='/images/logo.svg', alt='華興文化出版社' width='143')
+						small 後台管理系統
 				.collapse.navbar-collapse.navbar-headernav-collapse
 					if signout
 						ul.nav.navbar-nav.navbar-right
 							li.divider
+							li: a(href=backUrl).signout 返回#{brand}
 							li: a(href=signout).signout 登出
 					ul.nav.navbar-nav
 						each navSection in nav.sections
@@ -71,8 +74,8 @@ html
 				+flash-messages(messages)
 				block content
 
-		#footer: .container
-			p 等待客製化
+		//- #footer: .container
+			//- p 等待客製化
 			//- p 	#{brand} #{appversion} 
 			//- 	| Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a> version #{version}.
 			//- 	if User && user
