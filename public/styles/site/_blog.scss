@@ -140,6 +140,7 @@
 					a {
 						color: $main-color;
 						cursor: pointer;
+						text-decoration: underline;
 					}
 					h1, h2 {
 						font-size: 26px;
@@ -157,7 +158,8 @@
 					}
 					img {
 						max-width: 100%;
-						margin: 24px 0;
+						margin: 4px 0;
+						border-radius: 2px;
 					}
 				}
 			}
