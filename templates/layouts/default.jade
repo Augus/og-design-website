@@ -20,6 +20,7 @@ html(lang="zh-Hant-TW")
 		link(href="/styles/site.css", rel="stylesheet")
 
 		script(src='//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js', data-shr-siteid='55304172845f4680864cd0fe1d0ec44d', data-cfasync='false', async='async')
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600,400italic,300italic', rel='stylesheet', type='text/css')
 
 		//- This file provides the default styling for the KeystoneJS Content Editor
 		if user && user.canAccessKeystone
@@ -147,7 +148,7 @@ html(lang="zh-Hant-TW")
 				a.async = 1;
 				a.src = g;
 				m.parentNode.insertBefore(a, m)
-			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
 			ga('create', 'UA-52653674-2', 'auto');
 			ga('require', 'linkid');
