@@ -9,7 +9,8 @@ var Types = keystone.Field.Types;
 var Resource = new keystone.List('Resource', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true },
-	label: '設計資源'
+	label: '設計資源',
+	defaultSort: '-view'
 });
 
 // Resource
