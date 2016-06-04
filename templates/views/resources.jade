@@ -49,7 +49,7 @@ block content
 				.col-md-12
 					.search-resource
 						i.zmdi.zmdi-search
-						input(id='search', type='search', placeholder='搜尋資源…（例如：靈感、工具、配色）', ng-model='keyword' ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }",  ng-keyup='onSearchKeyUp($event)')
+						input(id='search', type='search', placeholder='搜尋資源…（例如：靈感、工具、配色）', ng-model='keyword' ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }",  ng-keyup='onSearchKeyUp($event)', ng-focus="onSearchFocus($event)")
 						.social-like.hidden-xs
 							.fb-like(data-href="https://www.facebook.com/ogdesign.tw", data-layout="button_count", data-action="like", data-show-faces="false", data-share="true", data-width="200", data-colorscheme="light", style="color: #111D2D; width: 200px; overflow: hidden; height: 20px; text-align: right; vertical-align: middle;")
 							.fb-follow(data-href="https://www.facebook.com/Augus.YiHao", data-width="90", data-layout="button_count", data-show-faces="true", style="vertical-align: middle;")
@@ -112,6 +112,7 @@ block content
 			.mdl-overlay(close-modal)
 	
 block js
+	script(src='/js/angular-google-analytics.min.js')
 	script(src='/js/is.min.js')
 	script(src='/js/mousetrap.js')
 	script(src='/js/wMousetrap.js')

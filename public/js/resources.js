@@ -1,10 +1,17 @@
-var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', 'ngModal', 'angularLazyImg', 'loader'])
+var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', 'ngModal', 'angularLazyImg', 'loader', 'angular-google-analytics'])
 .filter('domain', function() {
     return function(input) {
         var a = document.createElement('a');
         a.href = input;
         return a.hostname;
     };
+})
+
+.config(function($locationProvider, AnalyticsProvider) {
+    AnalyticsProvider.setAccount([{
+        tracker: 'UA-52653674-2',
+        name: "tracker"
+    }]);
 })
 
 .controller("SubmitResourceController", function ($scope, $http, $timeout, $ngModal) {
@@ -53,7 +60,7 @@ var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', '
         });
 	};
 })
-.controller("ResourceController", function ($scope, $http, $timeout, $location) {
+.controller("ResourceController", function ($scope, $http, $timeout, $location, Analytics) {
 
 	$scope.keyword = "";
 	$scope.categories = [];
@@ -76,12 +83,17 @@ var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', '
 
 	$scope.openResource = function (e, resource) {
 		$http.get("/view/" + resource._id).success(function (data) {});
+        Analytics.trackEvent('Resource', 'Open', resource.title);
 	};
 
 	$scope.search = function () {
         $timeout(function () {
             $("#search").focus().select();
         }, 100);
+    };
+
+    $scope.onSearchFocus = function () {
+        Analytics.trackEvent('Resource', 'SearchFocus', location.href);
     };
 
 	$scope.onSearchKeyUp = function (event) {
@@ -97,10 +109,12 @@ var resourcesApp = angular.module("ResouceApp", ['ngAnimate', 'mgo-mousetrap', '
 		if (category) {
 			$scope.currentCategory = category.id;
             $location.search('category', category.id);
+            Analytics.trackEvent('Resource', 'Filter', category.name);
 		}
 		else {
 			$scope.currentCategory = undefined;	
             $location.search('category', null);
+            Analytics.trackEvent('Resource', 'Filter', "全部分類");
 		}
 	};
 
