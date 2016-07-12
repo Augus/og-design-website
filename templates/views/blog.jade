@@ -40,7 +40,7 @@ block opengraph
 
 block content
 	.container(ng-app='BlogApp', ng-cloak): .row.blog-panel(ng-controller="BlogController", ng-init="init()")
-		.col-sm-9.col-md-9
+		.col-sm-8.col-md-8
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
 			else

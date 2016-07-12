@@ -19,7 +19,7 @@ block content
 			ol.breadcrumb
 				li: a(href="/blog/") 文章列表
 				li.active #{data.post.title}
-		.col-sm-9.col-md-9
+		.col-sm-8.col-md-8
 			.posts: .post
 				if data.post.image.exists
 					.thumb(style="background-image:url(#{data.post.image.url})")
