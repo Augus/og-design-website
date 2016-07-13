@@ -136,6 +136,7 @@
 						font-size: 16px;
 						color: $gray-color;
 						line-height: 28px;
+						margin-bottom: 1em;
 					}
 					a {
 						color: $main-color;
@@ -163,6 +164,12 @@
 					}
 					ul, ol {
 					    padding-left: 20px;
+					}
+					mark {
+						display: inline;
+						background-color: #E9FAFF;
+						color: $dark-color;
+						padding: 2px 2px;
 					}
 				}
 			}
