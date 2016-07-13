@@ -8,11 +8,12 @@ var Types = keystone.Field.Types;
 
 var Post = new keystone.List('Post', {
 	map: { name: 'title' },
-	autokey: { path: 'slug', from: 'title', unique: true },
+	// autokey: { path: 'slug', from: 'title', unique: true },
 	label: '文章'
 });
 
 Post.add({
+	slug: { type: String, label: '自定義網址' },
 	title: { type: String, required: true, label: '文章標題' },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true, label: '發佈狀態' },
 	author: { type: Types.Relationship, ref: 'User', index: true, label: '作者' },
