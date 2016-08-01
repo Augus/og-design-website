@@ -1,0 +1,545 @@
+@mixin input-focus-style($name, $bg-color, $border-color, $color) {
+    @if $name != "" {
+        &.input-focus-#{$name} {
+            &:focus {
+                background-color: $bg-color;
+                border-color: $border-color;
+                color: $color;
+            }
+            ~ i {
+            	color: $border-color;
+            }
+        }
+    }
+    @else {
+        &:focus {
+            text-decoration: none;
+            background-color: $bg-color;
+            border-color: $border-color;
+            color: $color;
+            ~ i {
+            	color: $border-color;
+            }
+        }
+    }
+}
+
+.input-message {
+	@extend .marginTop-xs;
+	@extend .marginBottom-m;
+	@extend .fontSize-xs;
+	&.input-message-positive {
+		@extend .textColor-ui-positive;
+	}
+	&.input-message-negative {
+		@extend .textColor-ui-negative;
+	}
+	&.input-message-warning {
+		@extend .textColor-ui-warning;
+	}
+}
+
+.input-wrap {
+	position: relative;
+	display: inline-block;
+	@extend .marginRight-xs;
+    @extend .marginBottom-xs;
+    &.input-block {
+		display: block;
+		width: 100%;
+		input[type="text"], input[type="email"], input[type="password"] {
+			display: block;
+			width: 100%;
+		}
+	}
+	&.icon-left {
+		i {
+			position: absolute;
+			top: 50%;
+			left: 12px;
+			transform: translateY(-50%);
+			@extend .textColor-smoke;
+			@extend .fontSize-m;
+		}
+		input[type="text"], input[type="email"], input[type="password"] {
+			@extend .marginRight-0;
+    		@extend .marginBottom-0;
+			@extend .paddingLeft-l;
+		}
+	}
+	&.icon-right {
+		i {
+			position: absolute;
+			top: 50%;
+			right: 12px;
+			transform: translateY(-50%);
+			@extend .textColor-smoke;
+			@extend .fontSize-m;
+		}
+		input[type="text"], input[type="email"], input[type="password"] {
+			@extend .marginRight-0;
+    		@extend .marginBottom-0;
+			@extend .paddingRight-l;
+		}
+	}
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+	padding: 0 $padding-xs;
+	box-shadow: none;
+	outline: none;
+	height: 44px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border: 1px solid $smoke-color;
+	box-sizing: border-box;
+	@include input-focus-style("", transparent, $ui-primary-color, $steel-color);
+	@extend .textColor-steel;
+	@extend .paddingLeft-xs;
+	@extend .paddingRight-xs;
+	@extend .marginRight-xs;
+    @extend .marginBottom-xs;
+	@extend .borderRadius-s;
+
+	&.input-xs {
+		width: 160px;
+		height: 36px;
+	}
+	&.input-s {
+		width: 160px;
+		height: 40px;
+	}
+	&.input-m {
+		width: 160px;
+		height: 44px;
+	}
+	&.input-l {
+		width: 200px;
+		height: 48px;
+	}
+	&.input-l {
+		width: 200px;
+		@extend .paddingLeft-s;
+		@extend .paddingRight-s;
+		height: 56px;
+	}
+
+	&.input-block {
+		display: block;
+		width: 100%;
+	}
+
+	&.input-disabled {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &.input-positive {
+    	border-color: $ui-positive-color;
+    	~ i {
+    		color: $ui-positive-color;
+    	}
+    }
+
+    &.input-negative {
+    	border-color: $ui-negative-color;
+    	~ i {
+    		color: $ui-negative-color;
+    	}
+    }
+
+    &.input-warning {
+    	border-color: $ui-warning-color;
+    	~ i {
+    		color: $ui-warning-color;
+    	}
+    }
+}
+
+
+// 群組按鈕
+// -------------------------------
+.input-group {
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid $smoke-color;
+    overflow: hidden;
+    @extend .borderRadius-s;
+    @extend .marginRight-xs;
+    @extend .marginBottom-xs;
+    .input-context {
+    	float: left;
+    	display: inline-block;
+    	height: 44px;
+    	line-height: 44px;
+    	@extend .textColor-sliver;
+    	@extend .bgColor-snow;
+    	@extend .paddingLeft-s;
+    	@extend .paddingRight-s;
+    	&.input-context-xs {
+			height: 36px;
+			line-height: 36px;
+		}
+		&.input-context-s {
+			height: 40px;
+			line-height: 40px;
+		}
+		&.input-context-m {
+			height: 44px;
+			line-height: 44px;
+		}
+		&.input-context-l {
+			height: 48px;
+			line-height: 48px;
+		}
+		&.input-context-l {
+			@extend .paddingLeft-s;
+			@extend .paddingRight-s;
+			height: 56px;
+			line-height: 56px;
+		}
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+        float: left;
+        border-color: transparent;
+        // box-shadow: -1px 0 0 $smoke-color inset;
+        @extend .borderRadius-0;
+        @extend .textColor-slate;
+        @extend .bgColor-white;
+        @extend .marginBottom-0;
+        @extend .marginRight-0;
+        &:focus {
+        	border: 1px solid $ui-primary-color;
+        }
+    }
+    .input-context, input[type="text"], input[type="email"], input[type="password"] {
+    	box-shadow: -1px 0 0 $smoke-color inset;
+	    &:last-child {
+	        box-shadow: 0 0 0 $smoke-color inset;
+	    }
+    }
+}
+
+/*
+ * WTF, forms?
+ * Released under MIT and copyright 2014 Mark Otto.
+ * http://wtfforms.com
+ *
+ * Embedded icons from Open Iconic.
+ * Released under MIT and copyright 2014 Waybury.
+ * http://useiconic.com/open
+ */
+
+
+
+/*
+ * Checkboxes and radios
+ */
+
+.control {
+  position: relative;
+  display: inline-block;
+  color: $slate-color;
+  cursor: pointer;
+  padding-left: 32px;
+  line-height: 24px;
+  @extend .fontSize-s;
+  @extend .marginRight-m;
+}
+.control input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1; /* Put the input behind the label so it doesn't overlay text */
+}
+.control-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width:  24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 65%;
+  color: $smoke-color;
+  text-align: center;
+  // background-color: $smoke-color;
+  border: 2px solid $smoke-color;
+  background-size: 50% 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/* Hover state */
+/* Uncomment if you need it, but be aware of the sticky iOS states.
+.control:hover .control-indicator {
+  color: #fff;
+  background-color: #ccc;
+}
+*/
+
+/* Focus */
+// .control input:focus ~ .control-indicator {
+//   box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem $primary-color;
+// }
+
+/* Checked state */
+.control input:checked ~ .control-indicator {
+  color: #fff;
+  background-color: $primary-color;
+  border: 2px solid $primary-color;
+}
+
+/* Checkbox modifiers */
+.checkbox .control-indicator {
+  @extend .borderRadius-s;
+}
+.checkbox input:checked ~ .control-indicator {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);
+}
+
+/* Radio modifiers */
+.radio .control-indicator {
+  @extend .borderRadius-circle;
+}
+.radio input:checked ~ .control-indicator {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);
+}
+
+/* Alternately, use another character */
+.control-x input:checked ~ .control-indicator {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iOHB4IiBoZWlnaHQ9IjhweCIgdmlld0JveD0iMCAwIDggOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgOCA4IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xLjQsMEwwLDEuNGwwLjcsMC43bDEuOCwxLjhMMC43LDUuN0wwLDYuNGwxLjQsMS40bDAuNy0wLjdsMS44LTEuOGwxLjgsMS44bDAuNywwLjdsMS40LTEuNEw3LjEsNS43DQoJTDUuMywzLjlsMS44LTEuOGwwLjctMC43TDYuNCwwTDUuNywwLjdMMy45LDIuNUwyLjEsMC43QzIuMSwwLjcsMS40LDAsMS40LDB6Ii8+DQo8L3N2Zz4NCg==);
+}
+.control-dash input:checked ~ .control-indicator {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iOHB4IiBoZWlnaHQ9IjhweCIgdmlld0JveD0iMCAwIDggOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgOCA4IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0wLDN2Mmg4VjNIMHoiLz4NCjwvc3ZnPg0K)
+}
+
+
+
+/*
+ * Select
+ */
+
+.select {
+	position: relative;
+	display: inline-block;
+	color: $slate-color;
+	@extend .marginRight-xs;
+	@extend .marginBottom-xs;
+	&.select-xs select {
+		height: 36px;
+		line-height: 36px;
+	}
+	&.select-s select {
+		height: 40px;
+		line-height: 40px;
+	}
+	&.select-m select {
+		height: 44px;
+		line-height: 44px;
+	}
+	&.select-l select {
+		height: 48px;
+		line-height: 48px;
+	}
+}
+.select select {
+	display: inline-block;
+	margin: 0;
+	// padding: 0 2.25rem 0 1rem;
+	height: 40px;
+	line-height: 40px;
+	color: $slate-color;
+	border: 1px solid $smoke-color;
+	cursor: pointer;
+	outline: 0;
+	-webkit-appearance: none;
+	 -moz-appearance: none;
+	      appearance: none;
+	@extend .fontSize-s;
+	@extend .borderRadius-s;
+	@extend .paddingLeft-s;
+	@extend .paddingRight-l;
+}
+/* Undo the Firefox inner focus ring */
+.select select:focus:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+/* Dropdown arrow */
+.select:after {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  display: inline-block;
+  content: "";
+  width: 0;
+  height: 0;
+  margin-top: -.15rem;
+  pointer-events: none;
+  border-top: .35rem solid;
+  border-right: .35rem solid transparent;
+  border-bottom: .35rem solid transparent;
+  border-left: .35rem solid transparent;
+}
+
+/* Hover state */
+/* Uncomment if you need it, but be aware of the sticky iOS states.
+.select select:hover {
+  background-color: #ddd;
+}
+*/
+
+/* Focus */
+// .select select:focus {
+//   box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem $primary-color;
+// }
+
+/* Active/open */
+.select select:active {
+  color: #fff;
+  background-color: $primary-color;
+}
+
+/* Hide the arrow in IE10 and up */
+.select select::-ms-expand {
+  display: none;
+}
+
+/* Media query to target Firefox only */
+@-moz-document url-prefix() {
+  /* Firefox hack to hide the arrow */
+  .select select {
+    text-indent: 0.01px;
+    text-overflow: '';
+    padding-right: 1rem;
+  }
+
+  /* <option> elements inherit styles from <select>, so reset them. */
+  .select option {
+    background-color: white;
+  }
+}
+
+/* IE9 hack to hide the arrow */
+@media screen and (min-width:0\0) {
+  .select select {
+    z-index: 1;
+    padding: .5rem 1.5rem .5rem 1rem;
+  }
+  .select:after {
+    z-index: 5;
+  }
+  .select:before {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    bottom: 0;
+    z-index: 2;
+    content: "";
+    display: block;
+    width: 1.5rem;
+    // @extend .bgColor-snow;
+  }
+  .select select:hover,
+  .select select:focus,
+  .select select:active {
+    color: $slate-color;
+    background-color: $snow-color;
+  }
+}
+
+
+
+/*
+ * File
+ */
+
+.file {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  height: 2.5rem;
+}
+.file input {
+  min-width: 14rem;
+  margin: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.file-custom {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  height: 44px;
+  line-height: 44px;
+  color: $slate-color;
+  background-color: #fff;
+  border: 1px solid $smoke-color;
+  overflow: hidden;
+  @extend .borderRadius-s;
+  @extend .paddingLeft-s;
+  @extend .paddingRight-s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.file-custom:after {
+  content: "尚未選取檔案";
+  height: 44px;
+  line-height: 44px;
+}
+.file-custom:before {
+  position: absolute;
+  top: -.075rem;
+  right: -.075rem;
+  bottom: -.075rem;
+  z-index: 6;
+  display: block;
+  content: "選取檔案";
+  height: 44px;
+  line-height: 44px;
+  color: $slate-color;
+  border: 1px solid $smoke-color;
+  box-sizing: border-box;
+  background-color: $snow-color;
+  @extend .paddingLeft-s;
+  @extend .paddingRight-s;
+  @extend .borderTopRightRadius-s;
+  @extend .borderBottomRightRadius-s;
+}
+
+/* Focus */
+// .file input:focus ~ .file-custom {
+//   box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem $primary-color;
+// }
+
+
+
+/*
+ * Control layouts
+ */
+
+.controls-block {
+  margin: 1rem 0;
+}
+.controls-block .control {
+  display: block;
+}
+
+.controls-inline {
+  margin: 1rem 0;
+}
+.controls-inline .control {
+  display: inline-block;
+  height: 1rem;
+}
+.controls-inline .control + .control {
+  margin-left: 1rem;
+}

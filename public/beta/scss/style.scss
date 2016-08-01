@@ -1,0 +1,433 @@
+// 基本樣式定義
+@import "base/_reset";
+@import "base/_color";
+@import "base/_typography";
+@import "base/_animation";
+@import "base/_borderRadius";
+@import "base/_layout";
+@import "base/_position";
+@import "base/_background";
+
+@import "components/_grid";
+@import "components/_button";
+@import "components/_form-elements";
+
+.clearfix {
+	clear: both;
+	overflow: hidden;
+}
+
+// 使用方法，盡可能使用繼承撰寫特定樣式
+body {
+	@extend .bgColor-white;
+	@extend .textColor-steel;
+	@extend .fontFamily-lato;
+	@extend .fontSize-s;
+	@extend .lineHieght-extraTight;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    * {
+    	box-sizing: border-box;
+    }
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@extend .textColor-steel;
+	@extend .fontWeight-regular;
+	@extend .lineHieght-tight;
+	// margin-bottom: 1em;
+	// margin-top: 0.5em;
+}
+
+h1 {
+	@extend .fontSize-xxxl;
+}
+
+h2 {
+	@extend .fontSize-xxl;
+}
+
+h3 {
+	@extend .fontSize-xl;
+}
+
+h4 {
+	@extend .fontSize-l;
+}
+
+h5, h6 {
+	@extend .fontSize-l;
+}
+
+p {
+	@extend .textColor-sliver;
+	@extend .fontSize-m;
+	@extend .fontWeight-regular;
+	@extend .lineHieght-readable;
+}
+
+a {
+	@extend .textColor-ui-primary;
+	text-decoration: none;
+}
+
+code {
+	padding: 2px 6px;
+	// border: 1px solid $ui-negative-color;
+	@extend .fontFamily-fira;
+	@extend .fontSize-m;
+	@extend .borderRadius-s;
+	@extend .textColor-ui-negative;
+	@extend .marginLeft-xxs;
+	@extend .marginRight-xxs;
+	@extend .bgColor-snow;
+}
+
+// ---------------------------------------------------------------
+// Home
+// ---------------------------------------------------------------
+
+.header {
+	@extend .position-fixed;
+	@extend .bgColor-white;
+	z-index: 100000;
+	height: 80px;
+	line-height: 80px;
+	top: 0;
+	left: 0;
+	right: 0;
+	border-bottom: 1px solid $smoke-color;
+	// &.transparent {
+	// 	@extend .bgColor-transparent;
+	// 	@extend .position-fixed;
+	// 	border-bottom: 1px solid transparent;
+	// }
+	ul.nav {
+		@extend .position-absolute;
+		@extend .posPinCenter;
+		li {
+			float: left;
+			display: inline-block;
+			&.active {
+				a {
+					@extend .textColor-primary;	
+					@extend .fontWeight-bold;
+					border-bottom: 2px solid $primary-color;
+				}
+			}
+			a {
+				display: block;
+				line-height: 40px;
+				@extend .textColor-slate;
+				@extend .fontSize-s;
+				@extend .marginRight-s;
+				@extend .marginLeft-s;
+				border-bottom: 2px solid transparent;
+			}
+		}
+	}
+	.QA {
+		@extend .marginRight-m;
+		@extend .textColor-slate;
+		@extend .fontSize-s;
+		i {
+			@extend .marginRight-xs;
+			vertical-align: middle;
+		}
+	}
+	.button {
+		padding: 0 24px;
+		@extend .margin-0;
+	}
+}
+
+.banner {
+	height: 600px;
+	@extend .position-relative;
+	@extend .backgroundImage-cover;
+	&:before {
+		z-index: 10;
+		content: "";
+		@extend .position-absolute;
+		@extend .posPinFill;
+		background-image: radial-gradient(50% 150%, rgba(26,27,39,0.10) 50%, rgba(26,27,39,0.40) 74%, rgba(26,27,39,0.50) 100%);
+		background-color: rgba(24,26,36,0.40);
+	}
+	.info {
+		z-index: 11;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 720px;
+		@extend .paddingLeft-m;
+		@extend .paddingRight-m;
+		@extend .position-absolute;
+		@extend .posPinCenter;
+		@extend .textAlign-center;
+		h2 {
+			@extend .textColor-white;
+			@extend .fontSize-xxl;
+			@extend .lineHieght-tight;
+			@extend .marginBottom-s;
+		}
+		p {
+			@extend .textColor-white;
+			@extend .fontSize-m;
+			@extend .lineHieght-readable;
+			@extend .marginBottom-l;
+		}
+		.button {
+			width: 160px;
+		}
+		img {
+			max-width: 100%;
+		}
+	}
+}
+
+section {
+	@extend .paddingTop-xl;
+	@extend .paddingBottom-xl;
+	&.grey {
+		@extend .bgColor-snow;
+	}
+	a {
+		text-decoration: underline;
+		@extend .textColor-black;
+		@extend .fontWeight-bold;
+	}
+	.info {
+		@extend .textAlign-center;
+		h2 {
+			@extend .textColor-black;
+			@extend .fontSize-xxl;
+			@extend .lineHieght-tight;
+			@extend .marginBottom-s;
+		}
+		p {
+			@extend .textColor-slate;
+			@extend .fontSize-m;
+			@extend .lineHieght-readable;
+		}
+	}
+}
+
+// ---------------------------------------------------------------
+// 服務項目
+// ---------------------------------------------------------------
+.services {
+	max-width: 1080px;
+	margin: 0 auto;
+	@extend .textAlign-center;
+	.service {
+		@extend .paddingLeft-l;
+		@extend .paddingRight-l;
+		@extend .marginBottom-l;
+	    text-align: justify;
+    	text-align-last: center;
+    	-webkit-text-align-last: center;
+		.icon {
+			@extend .marginBottom-s;
+		}
+		h3 {
+			@extend .textColor-black;
+			@extend .fontSize-m;
+			@extend .lineHieght-extraTight;
+			@extend .marginBottom-s;
+		}
+		p {
+			@extend .textColor-slate;
+			@extend .fontSize-s;
+			@extend .lineHieght-readable;
+		}
+	}
+}
+
+// ---------------------------------------------------------------
+// 案例
+// ---------------------------------------------------------------
+.showcases {
+	max-width: 1080px;
+	margin: 0 auto;
+	@extend .textAlign-center;
+	.showcase {
+		@extend .position-relative;
+		@extend .bgColor-white;
+		@extend .marginLeft-xs;
+		@extend .marginRight-xs;
+		@extend .marginBottom-l;
+		@extend .borderRadius-m;
+		text-align: justify;
+    	text-align-last: center;
+    	-webkit-text-align-last: center;
+		overflow: hidden;
+		box-shadow: 0 2px 20px -7px rgba(0,0,0, 0.3);
+		transition-property: all;
+		@extend .transitionDuration-l;
+		@extend .transitionTimingFunction-ease;
+		&:hover {
+			cursor: pointer;
+			box-shadow: 0 8px 30px -7px rgba(0,0,0, 0.4);
+			transform: translateY(-5px);
+		}
+		.thumbnail {
+			img {
+				width: 100%;
+			}
+		}
+		.intro {
+			padding: 30px;
+			h3 {
+				@extend .textColor-black;
+				@extend .fontSize-xl;
+				@extend .lineHieght-extraTight;
+				@extend .marginBottom-s;
+			}
+			p {
+				@extend .textColor-slate;
+				@extend .fontSize-s;
+				@extend .lineHieght-readable;
+			}
+		}
+	}
+}
+
+
+// ---------------------------------------------------------------
+// 設計觀點
+// ---------------------------------------------------------------
+.posts {
+	max-width: 1080px;
+	margin: 0 auto;
+	@extend .textAlign-left;
+	.post {
+		@extend .position-relative;
+		@extend .bgColor-white;
+		@extend .marginLeft-xs;
+		@extend .marginRight-xs;
+		@extend .borderRadius-m;
+		text-align: justify;
+    	text-align-last: left;
+    	-webkit-text-align-last: left;
+		height: 400px;
+		overflow: hidden;
+		box-shadow: 0 2px 20px -7px rgba(0,0,0, 0.3);
+		transition-property: all;
+		@extend .transitionDuration-l;
+		@extend .transitionTimingFunction-ease;
+		&:hover {
+			cursor: pointer;
+			box-shadow: 0 8px 30px -7px rgba(0,0,0, 0.4);
+			transform: translateY(-5px);
+		}
+		.thumbnail {
+			width: 100%;
+			padding-bottom: 45.16%;
+			@extend .backgroundImage-cover;
+			@extend .position-relative;
+			.tag {
+				padding: 6px 11px 6px 6px;
+				border-radius: 0 20px 20px 0;
+				@extend .marginTop-s;
+				@extend .fontSize-s;
+				@extend .textColor-white;
+				@extend .bgColor-secondary;
+				@extend .position-absolute;
+				@extend .posPinTL;
+				@extend .fontWeight-bold;
+				&.tag1 {
+					background-color: #EB4748;
+				}
+				&.tag2 {
+					background-color: #00C584;
+				}
+				&.tag3 {
+					background-color: #9CC800;
+				}
+			}
+		}
+		.intro {
+			padding: 30px;
+			h3 {
+				@extend .textColor-black;
+				@extend .fontSize-xl;
+				@extend .lineHieght-tight;
+				@extend .marginBottom-s;
+			}
+			p {
+				@extend .textColor-sliver;
+				@extend .fontSize-s;
+				@extend .lineHieght-readable;
+				@extend .marginBottom-s;
+			}
+			.metas {
+				@extend .textColor-sliver;
+				@extend .fontSize-s;
+			}
+		}
+	}
+}
+
+
+section.cta {
+	@extend .textAlign-center;
+	h2 {
+		font-size: 22px;
+		@extend .lineHieght-loose;
+		@extend .textColor-black;
+		@extend .fontWeight-light;
+	}
+	.button {
+		width: 200px;
+	}
+	p {
+		@extend .fontSize-s;
+		@extend .textColor-slate;
+	}
+}
+
+.footer {
+	@extend .bgColor-black;
+	@extend .paddingTop-xl;
+	@extend .paddingBottom-xl;
+	.uvp {
+		@extend .textColor-white;
+		img {
+			@extend .marginBottom-s;
+		}
+		p {
+			@extend .fontSize-s;
+			@extend .textColor-white;
+			opacity: 0.7;
+		}
+	}
+	.sitemap {
+		@extend .textAlign-right;
+	}
+	.links {
+		vertical-align: top;
+		display: inline-block;
+		margin-left: 60px;
+		// @extend .marginLeft-l;
+		@extend .textAlign-left;
+		a {
+			display: block;
+			@extend .textColor-white;
+			@extend .fontSize-s;
+			@extend .marginBottom-xs;
+			opacity: 0.7;
+			&.link-title {
+				@extend .fontSize-m;
+				@extend .marginBottom-s;
+				opacity: 1;
+			}
+			&:last-child {
+				@extend .marginBottom-0;
+			}
+		}
+	}
+}
+

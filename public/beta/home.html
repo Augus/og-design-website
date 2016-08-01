@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>奧革設計 - 幫助創業團隊打造令人難忘的產品體驗</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/vendor/jquery.min.js"></script>
+	<link rel="stylesheet" href="js/vendor/highlight/styles/default.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="js/vendor/highlight/highlight.pack.js"></script>
+	<script>
+		$(document).on('click', 'a', function(event){
+		    // event.preventDefault();
+		    $('html, body').animate({
+		        scrollTop: $( $.attr(this, 'href') ).offset().top
+		    }, 300);
+		});
+		$(document).ready(function() {
+			hljs.configure({
+			  tabReplace: '    ', // 4 spaces
+			})
+			$('pre code').each(function(i, block) {
+				hljs.highlightBlock(block);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			 <div class="row between-md middle-md">
+				<div class="col-md-1 textAlign-left">
+					<h1><img src="images/logo.svg" alt="奧革設計"></h1>
+				</div>
+				<div class="col-md-7">
+					<ul class="nav">
+						<li class="active"><a href="#">關於我們</a></li>
+						<li><a href="#">服務項目</a></li>
+						<li><a href="#">合作流程</a></li>
+						<li><a href="#">成功案例</a></li>
+						<li><a href="#">設計資源總匯</a></li>
+						<li><a href="#">部落格</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 textAlign-right">
+					<a class="QA" href=""><i class="material-icons">help_outline</i>常見問題</a>
+					<div class="button button-ghost button-grey button-rounded button-s button-hover-primary">聯絡我們</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="banner" style="background-image: url(images/bg.jpg)">
+		<div class="container textAlign-center">
+			<div class="info">
+				<div class="marginTop-l"></div>
+				<h2>幫助創業團隊打造令人難忘的產品體驗</h2>
+				<p>奧革設計專注於使用者介面設計服務，提供完整的需求研究、使用介面設計、產品原型等
+解決方案，我們擅長透過產品思維打造令人難忘的產品（使用）體驗。</p>
+				<div class="button button-s button-primary">查看設計案例</div>
+				<div class="button button-ghost button-s button-white">查看合作流程</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 
+	============= 服務項目 =============
+	 -->
+	<section>
+		<div class="info">
+			<h2>服務項目</h2>
+			<p>我們設計的不只是產品，我們更打造讓你感覺順暢的使用體驗，<a href="#">瞭解更多服務項目</a>。</p>
+			<div class="marginBottom-xl"></div>
+		</div>
+		<div class="container">
+		 	<div class="row services">
+				<div class="col-md-4 service">
+					<div class="icon">
+						<img src="images/services/service-ux.svg" alt="使用經驗優化設計">
+					</div>
+					<h3>使用經驗優化設計</h3>
+					<p>依照您的需求進行客製化的分析以及研究，從用戶體驗的視角提出新穎的解決方式，讓使用者需求與商業目標在您的產品中找到完美平衡。</p>
+				</div>
+				<div class="col-md-4 service">
+					<div class="icon">
+						<img src="images/services/service-ui.svg" alt="使用者介面設計">
+					</div>
+					<h3>使用者介面設計</h3>
+					<p>美觀的使用者介面與流暢的使用者經驗才能抓住使用者的心，我們的初衷即是在美學與需求中找到平衡點，設計出美好的產品體驗。</p>
+				</div>
+				<div class="col-md-4 service">
+					<div class="icon">
+						<img src="images/services/service-rwd.svg" alt="響應式網頁設計">
+					</div>
+					<h3>響應式網頁設計</h3>
+					<p>響應式網頁設計 (Responsive Web Design，RWD) 是現在這個多元裝置時代不可或缺的服務，我們將協助您打造絕佳的使用體驗。</p>
+				</div>
+				<div class="col-md-4 service">
+					<div class="icon">
+						<img src="images/services/service-vd.svg" alt="視覺設計">
+					</div>
+					<h3>視覺設計</h3>
+					<p>除了影音圖文廣告製作外，我們能同時讓旗下合作頻道、插畫家、創作者進行曝光，讓知名度於短時間內急速攀升。</p>
+				</div>
+				<div class="col-md-4 service">
+					<div class="icon">
+						<img src="images/services/service-mvp.svg" alt="產品雛形設計">
+					</div>
+					<h3>產品雛形設計</h3>
+					<p>用最少的成本證明你的想法，利用最小可行性產品快速驗證你的想法，我們能夠迅速的開發極為擬真的產品雛形。</p>
+				</div>
+				<div class="col-md-4 service">
+					<div class="icon">
+						<img src="images/services/service-consult.svg" alt="設計諮詢協助">
+					</div>
+					<h3>設計諮詢協助</h3>
+					<p>除了影音圖文廣告製作外，我們能同時讓旗下合作頻道、插畫家、創作者進行曝光，讓知名度於短時間內急速攀升。</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 
+	============= 設計案例 =============
+	 -->
+	<section class="grey">
+		<div class="info">
+			<h2>設計案例</h2>
+			<p>優秀的設計贏得用戶，簡單並注重細節的產品可以為用戶帶來難忘的體驗。</p>
+			<div class="marginBottom-l"></div>
+		</div>
+		<div class="row showcases">
+			<div class="col-md-4">
+				<div class="showcase">
+					<div class="thumbnail">
+						<img src="images/showcases/showcase-1.jpg" alt="丹山嘉訊 - App 設計">
+					</div>
+					<div class="intro">
+						<h3>丹山嘉訊 - App 設計</h3>
+						<p>華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="showcase">
+					<div class="thumbnail">
+						<img src="images/showcases/showcase-2.jpg" alt="丹山嘉訊 - App 設計">
+					</div>
+					<div class="intro">
+						<h3>丹山嘉訊 - App 設計</h3>
+						<p>華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="showcase">
+					<div class="thumbnail">
+						<img src="images/showcases/showcase-3.jpg" alt="丹山嘉訊 - App 設計">
+					</div>
+					<div class="intro">
+						<h3>丹山嘉訊 - App 設計</h3>
+						<p>華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="showcase">
+					<div class="thumbnail">
+						<img src="images/showcases/showcase-4.jpg" alt="丹山嘉訊 - App 設計">
+					</div>
+					<div class="intro">
+						<h3>丹山嘉訊 - App 設計</h3>
+						<p>華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="showcase">
+					<div class="thumbnail">
+						<img src="images/showcases/showcase-5.jpg" alt="丹山嘉訊 - App 設計">
+					</div>
+					<div class="intro">
+						<h3>丹山嘉訊 - App 設計</h3>
+						<p>華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="showcase">
+					<div class="thumbnail">
+						<img src="images/showcases/showcase-6.jpg" alt="丹山嘉訊 - App 設計">
+					</div>
+					<div class="intro">
+						<h3>丹山嘉訊 - App 設計</h3>
+						<p>華人在美最廣知識性社群，美家長擔憂，ㄧ指滑動迎刃而解。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 
+	============= 合作流程 =============
+	 -->
+	<section>
+		<div class="info">
+			<h2>合作流程</h2>
+			<p>我們設計的不只是產品，我們更打造讓你感覺順暢的使用體驗，<a href="#">瞭解流程細節</a>。</p>
+			<div class="marginBottom-xl"></div>
+			<img src="images/process.png" alt="奧革設計合作流程">
+		</div>
+	</section>
+	
+
+	<!-- 
+	============= 夥伴推薦 =============
+	 -->
+	<section>
+		<div class="info">
+			<h2>夥伴推薦</h2>
+			<p>我們希望能夠與更多的團隊一起成長、進步，<br>快來看看夥伴們怎麼說</p>
+			<div class="marginBottom-l"></div>
+		</div>
+	</section>
+
+	<!-- 
+	============= 設計觀點 =============
+	 -->
+	<section class="grey">
+		<div class="info">
+			<h2>設計觀點</h2>
+			<p>我們樂於與各界分享我們對於技術創新、設計理念的觀點和看法，查看更多文章。</p>
+			<div class="marginBottom-l"></div>
+		</div>
+		<div class="row posts">
+			<div class="col-md-4">
+				<div class="post">
+					<div class="thumbnail" style="background-image: url(images/posts/1.png)">
+						<div class="tag tag1">介面設計</div>
+					</div>
+					<div class="intro">
+						<h3>淺談介面的空白狀態設計 Empty State Design</h3>
+						<p>各種社群媒體擁有截然不同的特性，好的社群經營者懂得釐清行銷目的，交叉活用工具，創造績效。徹底理解社群奧義，不再被工具遷著鼻子走，聰明經營社群、創造行銷實效，徹底打開你的社群行銷力！</p>
+						<div class="metas">MAY 26, 2016 BY 奧革士</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="post">
+					<div class="thumbnail" style="background-image: url(images/posts/2.png)">
+						<div class="tag tag2">交互設計</div>
+					</div>
+					<div class="intro">
+						<h3>介面動畫設計要瞭解的事情</h3>
+						<p>各種社群媒體擁有截然不同的特性，好的社群經營者懂得釐清行銷目的，交叉活用工具，創造績效。徹底理解社群奧義，不再被工具遷著鼻子走，聰明經營社群、創造行銷實效，徹底打開你的社群行銷力！</p>
+						<div class="metas">MAY 26, 2016 BY 奧革士</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="post">
+					<div class="thumbnail" style="background-image: url(images/posts/3.png)">
+						<div class="tag tag3">產品設計</div>
+					</div>
+					<div class="intro">
+						<h3>Sketch 小技巧 - 使用幫助選單功能加快設計速度</h3>
+						<p>各種社群媒體擁有截然不同的特性，好的社群經營者懂得釐清行銷目的，交叉活用工具，創造績效。徹底理解社群奧義，不再被工具遷著鼻子走，聰明經營社群、創造行銷實效，徹底打開你的社群行銷力！</p>
+						<div class="metas">MAY 26, 2016 BY 奧革士</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="cta">
+		<h2>需要 UI / UX 設計上的協助嗎？<br>我們期待與您聊聊彼此的想法！</h2>
+		<div class="marginBottom-m"></div>
+		<div class="button button-l button-primary">聯絡我們</div>
+		<div class="marginBottom-m"></div>
+		<p>您有專案時程或預算上的問題嗎？查看<a href="#">常見問題問與答</a>。</p>
+	</section>
+
+	<div class="footer">
+		<div class="container">
+			<div class="row  between-md top-md">
+				<div class="col-sm-3 uvp">
+					<img src="images/logo-white.svg" alt="">
+					<p>本網頁各連結標題及連結版權所有奧革設計。</p>
+					<p>© 2016 ogdesign All rights reserved</p>
+				</div>
+				<div class="col-sm-9 sitemap">
+					<div class="links">
+						<a href="#" class="link-title">關於我們</a>
+						<a href="#">設計資源</a>
+						<a href="#">部落格</a>
+						<a href="#">粉絲團</a>
+					</div>
+					<div class="links">
+						<a href="#" class="link-title">服務項目</a>
+						<a href="#">使用經驗優化設計</a>
+						<a href="#">使用者介面設計</a>
+						<a href="#">響應式網頁設計</a>
+						<a href="#">視覺設計</a>
+						<a href="#">產品雛形設計</a>
+						<a href="#">設計諮詢協助</a>
+					</div>
+					<div class="links">
+						<a href="#" class="link-title">合作流程</a>
+						<a href="#">產品需求分析</a>
+						<a href="#">架構規劃</a>
+						<a href="#">設計階段</a>
+						<a href="#">正式開發</a>
+						<a href="#">產品上線</a>
+					</div>
+					<div class="links">
+						<a href="#" class="link-title">設計觀點</a>
+						<a href="#">介面設計</a>
+						<a href="#">用戶體驗</a>
+						<a href="#">交互設計</a>
+						<a href="#">產品設計</a>
+					</div>
+					<div class="links">
+						<a href="#" class="link-title">聯絡我們</a>
+						<a href="#">電話： 0927 598 161</a>
+						<a href="#">信箱：augus@ogdesign.tw</a>
+						<a href="#">粉絲團：http://facebook.com/ogdesign.tw</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

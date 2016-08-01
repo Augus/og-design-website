@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>風格樣式指南 - 奧革設計</title>
+	<link rel="stylesheet" href="css/styleguide.css">
+	<script src="js/vendor/jquery.min.js"></script>
+	<link rel="stylesheet" href="js/vendor/highlight/styles/default.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="js/vendor/highlight/highlight.pack.js"></script>
+	<script>
+		$(document).on('click', 'a', function(event){
+		    // event.preventDefault();
+		    $('html, body').animate({
+		        scrollTop: $( $.attr(this, 'href') ).offset().top
+		    }, 300);
+		});
+		$(document).ready(function() {
+			hljs.configure({
+			  tabReplace: '    ', // 4 spaces
+			})
+			$('pre code').each(function(i, block) {
+				hljs.highlightBlock(block);
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<div class="sidebar">
+		<div class="logo padding-m">
+			<img src="images/logo.png" alt="">
+		</div>
+		<ul>
+			<li><a href="#colors">顏色（Colors）</a></li>
+			<li><a href="#typography">文字排版（Typography）</a></li>
+			<li><a href="#animation">動畫（Animation）</a></li>
+			<li><a href="#border-radius">圓角（Border Radius）</a></li>
+			<li><a href="#grid-system">網格系統（Grid System）</a></li>
+			<li><a href="#icons">圖示（Icon）</a></li>
+			<li><a href="#buttons">按鈕（Button）</a></li>
+			<li><a href="#form-elements">表單元件（Form Element）</a></li>
+		</ul>
+	</div>
+	
+	<div class="content">
+		
+		<section>
+			<h2 id="colors" class="section-title">顏色（Colors）</h2>
+			<h3>品牌顏色（Brand Color）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="palette-group">
+								<div class="color-palette bgColor-primary-dark">
+									<div class="name">Dark Primary</div>
+									<div class="hex">#59C6E5</div>
+								</div>
+								<div class="color-palette bgColor-primary">
+									<div class="name">Primary</div>
+									<div class="hex">#59C6E5</div>
+								</div>
+								<div class="color-palette bgColor-primary-light">
+									<div class="name">Light Primary</div>
+									<div class="hex">#59C6E5</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="palette-group">
+								<div class="color-palette bgColor-secondary-dark">
+									<div class="name">Secondary Dark</div>
+									<div class="hex">#B9C935</div>
+								</div>
+								<div class="color-palette bgColor-secondary">
+									<div class="name">Secondary</div>
+									<div class="hex">#B9C935</div>
+								</div>
+								<div class="color-palette bgColor-secondary-light">
+									<div class="name">Secondary Light</div>
+									<div class="hex">#B9C935</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="palette-group">
+								<div class="color-palette bgColor-third-dark">
+									<div class="name">Third Dark</div>
+									<div class="hex">#B9C935</div>
+								</div>
+								<div class="color-palette bgColor-third">
+									<div class="name">Third</div>
+									<div class="hex">#B9C935</div>
+								</div>
+								<div class="color-palette bgColor-third-light">
+									<div class="name">Third Light</div>
+									<div class="hex">#B9C935</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;bgColor-primary-light&quot;&gt;...&lt;/div&gt;<br>
+&lt;div class=&quot;bgColor-secondary-light&quot;&gt;...&lt;/div&gt;<br>
+&lt;div class=&quot;bgColor-third-light&quot;&gt;...&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>灰色（Grey Color）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="palette-group">
+								<div class="color-palette bgColor-grey-900">
+									<div class="name">Grey 900</div>
+									<div class="hex">#1A1C27</div>
+								</div>
+								<div class="color-palette bgColor-grey-800">
+									<div class="name">Grey 800</div>
+									<div class="hex">#2E3246</div>
+								</div>
+								<div class="color-palette bgColor-grey-700">
+									<div class="name">Grey 700</div>
+									<div class="hex">#434864</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="palette-group">
+								<div class="color-palette bgColor-grey-600">
+									<div class="name">Grey 600</div>
+									<div class="hex">#575E83</div>
+								</div>
+								<div class="color-palette bgColor-grey-500">
+									<div class="name">Grey 500</div>
+									<div class="hex">#6E769F</div>
+								</div>
+								<div class="color-palette bgColor-grey-400">
+									<div class="name">Grey 400</div>
+									<div class="hex">#8D93B3</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="palette-group">
+								<div class="color-palette bgColor-grey-300">
+									<div class="name">Grey 300</div>
+									<div class="hex">#ACB0C7</div>
+								</div>
+								<div class="color-palette bgColor-grey-200">
+									<div class="name">Grey 200</div>
+									<div class="hex">#CACDDC</div>
+								</div>
+								<div class="color-palette bgColor-grey-100">
+									<div class="name">Grey 100</div>
+									<div class="hex">#E9EAF0</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;bgColor-grey-100&quot;&gt;...&lt;/div&gt;<br>
+&lt;div class=&quot;bgColor-grey-200&quot;&gt;...&lt;/div&gt;<br>
+&lt;div class=&quot;bgColor-grey-300&quot;&gt;...&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>介面元件顏色（UI Color）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="color-palette bgColor-ui-primary">
+								<div class="name">Primary</div>
+								<div class="hex">#1A1C27</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="color-palette bgColor-ui-positive">
+								<div class="name">Positive</div>
+								<div class="hex">#2E3246</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="color-palette bgColor-ui-negative">
+								<div class="name">Negative</div>
+								<div class="hex">#434864</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="color-palette bgColor-ui-warning">
+								<div class="name">Warring</div>
+								<div class="hex">#575E83</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;bgColor-ui-positive&quot;&gt;...&lt;/div&gt;<br>
+&lt;div class=&quot;bgColor-ui-negative&quot;&gt;...&lt;/div&gt;<br>
+&lt;div class=&quot;bgColor-ui-warning&quot;&gt;...&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>文字顏色（Text Color)</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview no-padding">
+					<div class="fontSize-preview">
+						<p class="fontSize-l textColor-primary">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-secondary">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-third">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<br>
+						<p class="fontSize-l textColor-ui-primary">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-ui-positive">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-ui-negative">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-ui-warning">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<br>
+						<p class="fontSize-l textColor-grey-900">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-grey-800">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-grey-700">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-grey-600">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-grey-500">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-grey-400">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-grey-300">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-grey-200">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+						<p class="fontSize-l textColor-grey-100">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。</p>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+						&lt;p class=&quot;fontFamily-lato&quot;&gt;...&lt;/p&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2 id="typography" class="section-title">文字排版（Typography）</h2>
+			<h3>英文字體（Typefaces）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="typefaces fontSize-xl">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">&lt;p class=&quot;fontFamily-lato&quot;&gt;...&lt;/p&gt;</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>中文字體（Typefaces）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="typefaces fontSize-xl">把你的手放在滾熱的爐子上一分鐘，感覺起來像一小時。<br>坐在一個漂亮姑娘身邊整整一小時，感覺起來像一分鐘。<br>這就是「相對論」。</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">&lt;p class=&quot;fontFamily-lato&quot;&gt;...&lt;/p&gt;</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>文字大小（Font Size)</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview no-padding">
+					<div class="fontSize-preview">
+						<p class="fontSize-xxxxl">蘋方黑體</p>
+						<span>48px — Extra extra extra extra large</span>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-xxxl">蘋方黑體</p>
+						<span>38px — Extra extra extra large</span>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-xxl">蘋方黑體</p>
+						<span>28px — Extra extra large</span>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-xl">蘋方黑體</p>
+						<span>20px — Extra Large</span>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-l">蘋方黑體</p>
+						<span>18px — Large</span>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-m">蘋方黑體</p>
+						<span>16px — Medium</span>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-s">蘋方黑體</p>
+						<span>14px — Small</span>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-xs">蘋方黑體</p>
+						<span>12px — Extra small</span>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;p class=&quot;fontSize-xxxxl&quot;&gt;蘋方黑體&lt;/p&gt;<br>
+							&lt;p class=&quot;fontSize-xxxl&quot;&gt;蘋方黑體&lt;/p&gt;<br>
+							&lt;p class=&quot;fontSize-xxl&quot;&gt;蘋方黑體&lt;/p&gt;<br>
+							&lt;p class=&quot;fontSize-xl&quot;&gt;蘋方黑體&lt;/p&gt;<br>
+							&lt;p class=&quot;fontSize-l&quot;&gt;蘋方黑體&lt;/p&gt;<br>
+							&lt;p class=&quot;fontSize-m&quot;&gt;蘋方黑體&lt;/p&gt;<br>
+							&lt;p class=&quot;fontSize-s&quot;&gt;蘋方黑體&lt;/p&gt;<br>
+							&lt;p class=&quot;fontSize-xs&quot;&gt;蘋方黑體&lt;/p&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>文字粗細（Font Weight)</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview no-padding">
+					<div class="fontSize-preview">
+						<p class="fontSize-xxxl fontWeight-bold">蘋方黑體</p>
+						<span>蘋方黑體 Bold</span>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-xxxl fontWeight-regular">蘋方黑體</p>
+						<span>蘋方黑體 Regular</span>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-xxxl fontWeight-light">蘋方黑體</p>
+						<span>蘋方黑體 Light</span>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;p class=&quot;fontWeight-bold&quot;&gt;蘋方黑體&lt;/p&gt;<br>
+							&lt;p class=&quot;fontWeight-regular&quot;&gt;蘋方黑體&lt;/p&gt;<br>
+							&lt;p class=&quot;fontWeight-light&quot;&gt;蘋方黑體&lt;/p&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>段落對齊（Text Align)</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview no-padding">
+					<div class="fontSize-preview">
+						<p class="fontSize-m textAlign-left">文字置左對齊</p>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-m textAlign-center">文字置中對齊</p>
+					</div>
+					<div class="fontSize-preview">
+						<p class="fontSize-m textAlign-right">文字置右對齊</p>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;p class=&quot;textAlign-left&quot;&gt;&#x6587;&#x5b57;&#x7f6e;&#x5de6;&#x5c0d;&#x9f4a;&lt;/p&gt;<br>
+							&lt;p class=&quot;textAlign-center&quot;&gt;&#x6587;&#x5b57;&#x7f6e;&#x4e2d;&#x5c0d;&#x9f4a;&lt;/p&gt;<br>
+							&lt;p class=&quot;textAlign-right&quot;&gt;&#x6587;&#x5b57;&#x7f6e;&#x53f3;&#x5c0d;&#x9f4a;&lt;/p&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>行高（Line Height)</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview no-padding">
+					<div class="fontSize-preview">
+						<div class="paragraph fontSize-m lineHieght-extraTight">如果我的相對論被證明是正確的，德國人就會說我是德國人，法國佬會說我是一個世界公民。如果我的相對論被否定了，法國佬就會罵我德國鬼子，而德國人就會把我歸為猶太人。</div>
+						<span>很緊（適合使用在單行段落）</span>
+					</div>
+					<div class="fontSize-preview">
+						<div class="paragraph fontSize-m lineHieght-tight">如果我的相對論被證明是正確的，德國人就會說我是德國人，法國佬會說我是一個世界公民。如果我的相對論被否定了，法國佬就會罵我德國鬼子，而德國人就會把我歸為猶太人。</div>
+						<span>緊（適合使用在標題）</span>
+					</div>
+					<div class="fontSize-preview">
+						<div class="paragraph fontSize-m lineHieght-readable">如果我的相對論被證明是正確的，德國人就會說我是德國人，法國佬會說我是一個世界公民。如果我的相對論被否定了，法國佬就會罵我德國鬼子，而德國人就會把我歸為猶太人。</div>
+						<span>舒適（適合使用在內文）</span>
+					</div>
+					<div class="fontSize-preview">
+						<div class="paragraph fontSize-m lineHieght-loose">如果我的相對論被證明是正確的，德國人就會說我是德國人，法國佬會說我是一個世界公民。如果我的相對論被否定了，法國佬就會罵我德國鬼子，而德國人就會把我歸為猶太人。</div>
+						<span>鬆散（適合使用在強調文字）</span>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;p class=&quot;lineHieght-extraTight&quot;&gt;...&lt;/p&gt;<br>
+							&lt;p class=&quot;lineHieght-tight&quot;&gt;...&lt;/p&gt;<br>
+							&lt;p class=&quot;lineHieght-readable&quot;&gt;...&lt;/p&gt;<br>
+							&lt;p class=&quot;lineHieght-loose&quot;&gt;...&lt;/p&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+
+			<h3>文字轉換（Transform)</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview no-padding">
+					<div class="fontSize-preview">
+						<div class="paragraph fontSize-l lineHieght-readable textTransform-capitalize">Common sense is the collection of prejudices acquired by age eighteen.</div>
+						<span>首字大寫(Capitalize)</span>
+					</div>
+					<div class="fontSize-preview">
+						<div class="paragraph fontSize-l lineHieght-readable textTransform-uppercase">Common sense is the collection of prejudices acquired by age eighteen.</div>
+						<span>全部大寫(UPPERCASE)</span>
+					</div>
+					<div class="fontSize-preview">
+						<div class="paragraph fontSize-l lineHieght-readable textTransform-lowercase">Common sense is the collection of prejudices acquired by age eighteen.</div>
+						<span>全部小寫(lowercase)</span>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;p class=&quot;textTransform-capitalize&quot;&gt;...&lt;/p&gt;<br>
+							&lt;p class=&quot;textTransform-uppercase&quot;&gt;...&lt;/p&gt;<br>
+							&lt;p class=&quot;textTransform-lowercase&quot;&gt;...&lt;/p&gt;<br>
+						</code>
+					</pre>
+				</div>
+			</div>
+			
+
+
+		</section>
+
+		<section>
+			<h2 id="animation" class="section-title">動畫（Animation）</h2>
+			<h3>轉場時間（Timing）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview no-padding">
+					<div class="ball-duration-animation transitionDuration-0">
+						<div class="ball bgColor-secondary"></div>
+					</div>
+					<!-- <div class="ball-duration-animation transitionDuration-s">
+						<div class="ball bgColor-secondary"></div>
+					</div>
+					<div class="ball-duration-animation transitionDuration-m">
+						<div class="ball bgColor-secondary"></div>
+					</div> -->
+					<div class="ball-duration-animation transitionDuration-l">
+						<div class="ball bgColor-secondary"></div>
+					</div>
+					<div class="ball-duration-animation transitionDuration-xl">
+						<div class="ball bgColor-secondary"></div>
+					</div>
+					<div class="ball-duration-animation transitionDuration-xxl">
+						<div class="ball bgColor-secondary"></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;div class=&quot;transitionDuration-0&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;transitionDuration-s&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;transitionDuration-m&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;transitionDuration-l&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;transitionDuration-xl&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;transitionDuration-xxl&quot;&gt;&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>時間函式（Timing Function）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview no-padding">
+					<div class="ball-timing-animation linear">
+						<div class="ball bgColor-ui-warning"></div>
+					</div>
+					<div class="ball-timing-animation ease">
+						<div class="ball bgColor-ui-warning"></div>
+					</div>
+					<div class="ball-timing-animation scaleIn">
+						<div class="ball bgColor-ui-warning"></div>
+					</div>
+					<div class="ball-timing-animation scaleOut">
+						<div class="ball bgColor-ui-warning"></div>
+					</div>
+					<div class="ball-timing-animation scaleUp">
+						<div class="ball bgColor-ui-warning"></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;div class=&quot;transitionTimingFunction-linear&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;transitionTimingFunction-ease&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;transitionTimingFunction-cb--scaleIn&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;transitionTimingFunction-cb--scaleOut&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;transitionTimingFunction-cb--scaleUp&quot;&gt;&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>動畫效果（Animation Effect）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<p>抖動效果來自由 <a href="https://elrumordelaluz.github.io/csshake/" target="_blank">Shake CSS</a> 完成。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="square bgColor-primary animation--spin"></div>
+					<div class="square bgColor-primary animation--bounce"></div>
+					<div class="square bgColor-primary animation--shake"></div>
+					<div class="square bgColor-primary animation--shake constant"></div>
+					<div class="square bgColor-primary animation--shake-little constant"></div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;div class=&quot;animation--spin&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;animation--bounce&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;animation--shake&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;animation--shake constant&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;animation--shake-little constant&quot;&gt;&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2 id="border-radius" class="section-title">圓角（Border Radius）</h2>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="square bgColor-slate borderRadius-s"></div>
+					<div class="square bgColor-slate borderRadius-m"></div>
+					<div class="square bgColor-slate borderRadius-l"></div>
+					<div class="square bgColor-slate borderRadius-circle"></div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;div class=&quot;borderRadius-s&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;borderRadius-m&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;borderRadius-l&quot;&gt;&lt;/div&gt;<br>
+							&lt;div class=&quot;borderRadius-circle&quot;&gt;&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+		</section>
+
+		<!-- 網格系統 -->
+		<section>
+			<h2 id="grid-system" class="section-title">網格系統（Grid System)</h2>
+			<h3>響應式網格（Reponsive Grid）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<p>此版本網格系統基於 <a href="http://flexboxgrid.com/">Flex box Grid</a> 實作。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-xs-6 col-md-3 col-lg-3"><div class="grid-item"></div></div>
+						<div class="col-xs-6 col-md-3 col-lg-3"><div class="grid-item"></div></div>
+						<div class="col-xs-6 col-md-3 col-lg-3"><div class="grid-item"></div></div>
+						<div class="col-xs-6 col-md-3 col-lg-3"><div class="grid-item"></div></div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-4"><div class="grid-item"></div></div>
+						<div class="col-xs-12 col-md-4"><div class="grid-item"></div></div>
+						<div class="col-xs-12 col-md-4"><div class="grid-item"></div></div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-6"><div class="grid-item"></div></div>
+						<div class="col-xs-12 col-md-6"><div class="grid-item"></div></div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-12"><div class="grid-item"></div></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row&quot;&gt;<br>
+    &lt;div class=&quot;col-md-3&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-3&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-3&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-3&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;row&quot;&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;row&quot;&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;row&quot;&gt;<br>
+&lt;div class=&quot;col-md-12&quot;&gt;&lt;/div&gt;&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>隱藏（Hidden）尚未完成</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-md-6"><div class="grid-item"></div></div>
+						<div class="col-md-6 hidden-md"><div class="grid-item">hidden-md</div></div>
+					</div>
+				</div>
+			</div>
+
+			<h3>位移（Offsets）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-md-offset-11 col-md-1"><div class="grid-item"></div></div>
+						<div class="col-md-offset-10 col-md-2"><div class="grid-item"></div></div>
+						<div class="col-md-offset-9 col-md-3"><div class="grid-item"></div></div>
+						<div class="col-md-offset-8 col-md-4"><div class="grid-item"></div></div>
+						<div class="col-md-offset-7 col-md-5"><div class="grid-item"></div></div>
+						<div class="col-md-offset-6 col-md-6"><div class="grid-item"></div></div>
+						<div class="col-md-offset-5 col-md-7"><div class="grid-item"></div></div>
+						<div class="col-md-offset-4 col-md-8"><div class="grid-item"></div></div>
+						<div class="col-md-offset-3 col-md-9"><div class="grid-item"></div></div>
+						<div class="col-md-offset-2 col-md-10"><div class="grid-item"></div></div>
+						<div class="col-md-offset-1 col-md-11"><div class="grid-item"></div></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row&quot;&gt;<br>
+	&lt;div class=&quot;col-md-offset-11 col-md-1&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-10 col-md-2&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-9 col-md-3&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-8 col-md-4&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-7 col-md-5&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-6 col-md-6&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-5 col-md-7&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-4 col-md-8&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-3 col-md-9&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-2 col-md-10&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-offset-1 col-md-11&quot;&gt;&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>水平對齊（Aliginment）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row start-md">
+						<div class="col-md-6"><div class="grid-item"></div></div>
+					</div>
+					<div class="row center-md">
+						<div class="col-md-6"><div class="grid-item"></div></div>
+					</div>
+					<div class="row end-md">
+						<div class="col-md-6"><div class="grid-item"></div></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row start-md&quot;&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class=&quot;row center-md&quot;&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class=&quot;row end-md&quot;&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>垂直對齊（Aliginment）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row top-md">
+						<div class="col-md-6"><div class="grid-item big"></div></div>
+						<div class="col-md-6"><div class="grid-item"></div></div>
+					</div>
+					<div class="row middle-md">
+						<div class="col-md-6"><div class="grid-item big"></div></div>
+						<div class="col-md-6"><div class="grid-item"></div></div>
+					</div>
+					<div class="row bottom-md">
+						<div class="col-md-6"><div class="grid-item big"></div></div>
+						<div class="col-md-6"><div class="grid-item"></div></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row top-md&quot;&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class=&quot;row middle-md&quot;&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;<br>
+&lt;/div&gt;<br>
+&lt;div class=&quot;row bottom-md&quot;&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;&lt;/div&gt;<br>
+&lt;/div&gt;
+
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>分散（Distribution）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row around-md">
+						<div class="col-md-2"><div class="grid-item"></div></div>
+						<div class="col-md-2"><div class="grid-item"></div></div>
+						<div class="col-md-2"><div class="grid-item"></div></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row around-md&quot;&gt;<br>
+	&lt;div class=&quot;col-md-2&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-2&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-2&quot;&gt;&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row between-md">
+						<div class="col-md-2"><div class="grid-item"></div></div>
+						<div class="col-md-2"><div class="grid-item"></div></div>
+						<div class="col-md-2"><div class="grid-item"></div></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row between-md&quot;&gt;<br>
+	&lt;div class=&quot;col-md-2&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-2&quot;&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-2&quot;&gt;&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>順序調整（Reordering）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-md-4"><div class="grid-item">1</div></div>
+						<div class="col-md-4"><div class="grid-item">2</div></div>
+						<div class="col-md-4 first-xs"><div class="emphasize grid-item">3</div></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row&quot;&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;div class=&quot;grid-item&quot;&gt;1&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;div class=&quot;grid-item&quot;&gt;2&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-4 first-xs&quot;&gt;&lt;div class=&quot;grid-item&quot;&gt;3&lt;/div&gt;&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-md-4 last-xs"><div class="emphasize grid-item">1</div></div>
+						<div class="col-md-4"><div class="grid-item">2</div></div>
+						<div class="col-md-4"><div class="grid-item">3</div></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row&quot;&gt;<br>
+	&lt;div class=&quot;col-md-4 last-xs&quot;&gt;&lt;div class=&quot;grid-item&quot;&gt;1&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;div class=&quot;grid-item&quot;&gt;2&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;div class=&quot;grid-item&quot;&gt;3&lt;/div&gt;&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>順序反轉（Reversing）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row reverse">
+						<div class="col-md-4"><div class="grid-item emphasize">1</div></div>
+						<div class="col-md-4"><div class="grid-item emphasize">2</div></div>
+						<div class="col-md-4"><div class="grid-item emphasize">3</div></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row reverse&quot;&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;div class=&quot;grid-item&quot;&gt;1&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;div class=&quot;grid-item&quot;&gt;2&lt;/div&gt;&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-4&quot;&gt;&lt;div class=&quot;grid-item&quot;&gt;3&lt;/div&gt;&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+		</section>
+
+		<section id="icons">
+			<h2>圖示（Icon）</h2>
+			<h3>Google Material Icons</h3>
+			<p>本專案圖示使用 Google 團隊提供的 Material Icons，完整的使用案例與方式可以參考<a href="https://design.google.com/icons/" target="_blank">官方完整的文件</a>。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-md-2 icon-preview"><i class="material-icons">add</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">add_circle_outline</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">block</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">clear</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">content_copy</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">link</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">send</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">access_time</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">android</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">autorenew</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">code</i></div>
+						<div class="col-md-2 icon-preview"><i class="material-icons">done</i></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+							&lt;link href=&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot; rel=&quot;stylesheet&quot;&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;add_circle_outline&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;block&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;clear&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;content_copy&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;link&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;send&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;access_time&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;android&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;autorenew&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;code&lt;/i&gt;<br>
+							&lt;i class=&quot;material-icons&quot;&gt;done&lt;/i&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+			
+		</section>
+
+		<section id="buttons">
+			<h2>按鈕（Button）</h2>
+
+			<h3>按鈕尺寸（Button Size）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row middle-md">
+						<div class="button button-xs">button-xs</div>
+						<div class="button button-s">button-s</div>
+						<div class="button button-m">button-m</div>
+						<div class="button button-l">button-l</div>
+						<div class="button button-xl">button-xl</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button button-xs&quot;&gt;button-xs&lt;/div&gt;<br>
+&lt;div class=&quot;button button-s&quot;&gt;button-s&lt;/div&gt;<br>
+&lt;div class=&quot;button button-m&quot;&gt;button-m&lt;/div&gt;<br>
+&lt;div class=&quot;button button-l&quot;&gt;button-l&lt;/div&gt;<br>
+&lt;div class=&quot;button button-xl&quot;&gt;button-xl&lt;/div&gt;						
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>按鈕顏色（Normal）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="button button-s button-white">按鈕</div>
+						<div class="button button-s button-grey">按鈕</div>
+						<div class="button button-s button-primary">按鈕</div>
+						<div class="button button-s button-secondary">按鈕</div>
+						<div class="button button-s button-third">按鈕</div>
+					</div>
+					<div class="row">
+						<div class="button button-s button-positive">按鈕</div>
+						<div class="button button-s button-negative">按鈕</div>
+						<div class="button button-s button-warning">按鈕</div>
+					</div>
+					<div class="row">
+						<div class="button button-s button-facebook">Facebook</div>
+						<div class="button button-s button-twitter">Twitter</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button button-s button-white&quot;&gt;&#x6309;&#x9215;&lt;/div&gt;<br>
+&lt;div class=&quot;button button-s button-grey&quot;&gt;&#x6309;&#x9215;&lt;/div&gt;<br>
+&lt;div class=&quot;button button-s button-primary&quot;&gt;&#x6309;&#x9215;&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>幽靈按鈕（Ghost Button）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="button button-ghost">幽靈按鈕</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button button-ghost&quot;&gt;&#x5e7d;&#x9748;&#x6309;&#x9215;&lt;/div</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>禁用按鈕（Disabled Button）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="button button-disabled">禁用按鈕</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button button-disabled&quot;&gt;&#x5e7d;&#x9748;&#x6309;&#x9215;&lt;/div</code>
+					</pre>
+				</div>
+			</div>
+			
+			<h3>懸停顏色（Hover Color）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="button button-ghost button-hover-primary">幽靈按鈕</div>
+						<div class="button button-ghost button-hover-secondary">幽靈按鈕</div>
+						<div class="button button-ghost button-hover-third">幽靈按鈕</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button button-ghost button-hover-primary&quot;&gt;&#x5e7d;&#x9748;&#x6309;&#x9215;&lt;/div&gt;<br>
+&lt;div class=&quot;button button-ghost button-hover-secondary&quot;&gt;&#x5e7d;&#x9748;&#x6309;&#x9215;&lt;/div&gt;<br>
+&lt;div class=&quot;button button-ghost button-hover-third&quot;&gt;&#x5e7d;&#x9748;&#x6309;&#x9215;&lt;/div&gt;
+
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>圓角按鈕（Rounded Button）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="button button-rounded">圓角按鈕</div>
+						<div class="button button-rounded button-ghost">幽靈圓角按鈕</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button button-rounded&quot;&gt;&#x5713;&#x89d2;&#x6309;&#x9215;&lt;/div&gt;<br>
+&lt;div class=&quot;button button-rounded button-ghost&quot;&gt;&#x5e7d;&#x9748;&#x5713;&#x89d2;&#x6309;&#x9215;&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>填滿按鈕（Block Button）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="button button-block">按鈕</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button button-block&quot;&gt;&#x6309;&#x9215;&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>按鈕圖示（Button with ICON）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="button button-ghost icon-left"><i class="material-icons">done</i>圖示在左</div>
+						<div class="button button-ghost icon-right">圖示在右<i class="material-icons">link</i></div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button button-ghost icon-left&quot;&gt;<br>
+&lt;i class=&quot;material-icons&quot;&gt;done&lt;/i&gt;&#x5716;&#x793a;&#x5728;&#x5de6;<br>
+&lt;/div&gt;<br>
+<br>
+&lt;div class=&quot;button button-ghost icon-right&quot;&gt;
+&#x5716;&#x793a;&#x5728;&#x53f3;&lt;i class=&quot;material-icons&quot;&gt;link&lt;/i&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>動畫按鈕（Button Effect）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="button animation--bounce">請點擊我！</div>
+					<div class="button animation--shake constant">請點擊我！</div>
+					<div class="button animation--shake-little constant">請點擊我！</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button animation--bounce&quot;&gt;&#x8acb;&#x9ede;&#x64ca;&#x6211;&#xff01;&lt;/div&gt;<br>
+&lt;div class=&quot;button animation--shake constant&quot;&gt;&#x8acb;&#x9ede;&#x64ca;&#x6211;&#xff01;&lt;/div&gt;<br>
+&lt;div class=&quot;button animation--shake-little constant&quot;&gt;&#x8acb;&#x9ede;&#x64ca;&#x6211;&#xff01;&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>按鈕群組（Button Group）</h3>
+			<p>在風格樣式裡，我們在框架核心面加入選擇性的行動友善樣式。我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="button-group">
+							<div class="button button-m">按鈕</div>
+							<div class="button button-m">按鈕</div>
+							<div class="button button-m">按鈕</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="button-group">
+							<div class="button button-m button-hover-primary">Hover Primary</div>
+							<div class="button button-m button-hover-secondary">Hover Secondary</div>
+							<div class="button button-m button-hover-third">Hover Third</div>
+						</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;button-group&quot;&gt;<br>
+	&lt;div class=&quot;button&quot;&gt;&#x6309;&#x9215;&lt;/div&gt;<br>
+	&lt;div class=&quot;button&quot;&gt;&#x6309;&#x9215;&lt;/div&gt;<br>
+	&lt;div class=&quot;button&quot;&gt;&#x6309;&#x9215;&lt;/div&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;button-group&quot;&gt;<br>
+	&lt;div class=&quot;button button-hover-primary&quot;&gt;Hover Primary&lt;/div&gt;<br>
+	&lt;div class=&quot;button button-hover-secondary&quot;&gt;Hover Secondary&lt;/div&gt;<br>
+	&lt;div class=&quot;button button-hover-third&quot;&gt;Hover Third&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+		</section>
+
+		<!-- 表單元件 -->
+		<section id="form-elements">
+			<h2>表單元件（Form Element）</h2>
+			<h3>輸入框大小（Input Size）</h3>
+			<p>輸入框是網頁最基本的內容輸入元件，通常我們會根據不同的情境使用不同的大小，元件庫提供4種不同尺寸，分別是<code>.input-xs</code>、<code>.input-s</code>、<code>.input-m</code>、<code>.input-l</code>，如下方案例說明：</p>
+			<div class="preview">
+				<div class="example-preview">
+					<input class="input-xs" type="text" placeholder="在這裡輸入內容">
+					<input class="input-s" type="text" placeholder="在這裡輸入內容">
+					<input class="input-m" type="text" placeholder="在這裡輸入內容">
+					<input class="input-l" type="text" placeholder="在這裡輸入內容">
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;input class=&quot;input-xs&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;<br>
+&lt;input class=&quot;input-s&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;<br>
+&lt;input class=&quot;input-m&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;<br>
+&lt;input class=&quot;input-l&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>輸入框圖示（Input with ICON）</h3>
+			<p>有時候為了讓畫面更加的簡潔，某些輸入框不會搭配 Label 來展示，這時候如果只剩下 placeholder 十分的不清楚，這種情況使用輸入框圖示可能是一個不錯的解決方案之一。在元件庫中，我們可以使用<code>.icon-left</code>及<code>.icon-right</code>來達到這個需求，如下方案例說明：</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="input-wrap icon-left">
+						<input type="text" placeholder="在這裡輸入內容">
+						<i class="material-icons">send</i>
+					</div>
+					<div class="input-wrap icon-right">
+						<input type="text" placeholder="在這裡輸入內容">
+						<i class="material-icons">send</i>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;input-wrap icon-left&quot;&gt;<br>
+	&lt;input type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;<br>
+	&lt;i class=&quot;material-icons&quot;&gt;send&lt;/i&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;input-wrap icon-right&quot;&gt;<br>
+	&lt;input type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;<br>
+	&lt;i class=&quot;material-icons&quot;&gt;send&lt;/i&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>填滿輸入框（Block Input）</h3>
+			<p>在響應式網頁設計中，輸入框通常都會被放在<code>.col</code>欄位中，輸入框的寬度會隨著螢幕寬度來改變，通常這種情況我們會讓輸入框自動稱滿該有的寬度，在元件庫中，我們可以使用<code>.input-block</code>來達到這個需求，如下案例說明：</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="col-md-6">
+							<input class="input-block" type="text" placeholder="在這裡輸入內容">
+						</div>
+						<div class="col-md-6">
+							<input class="input-block" type="text" placeholder="在這裡輸入內容">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="input-wrap input-block icon-left">
+								<input class="input-block" type="text" placeholder="在這裡輸入內容">
+								<i class="material-icons">send</i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;row&quot;&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;<br>
+		&lt;input class=&quot;input-block&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;<br>
+	&lt;/div&gt;<br>
+	&lt;div class=&quot;col-md-6&quot;&gt;<br>
+		&lt;input class=&quot;input-block&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;<br>
+	&lt;/div&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;input-wrap input-block icon-left&quot;&gt;<br>
+	&lt;input class=&quot;input-block&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;<br>
+	&lt;i class=&quot;material-icons&quot;&gt;send&lt;/i&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>輸入框狀態（Input Status）</h3>
+			<p>良好設計的輸入框應該具備即時輸入狀態顯示的能力，隨著使用者輸入內容的不同，即時提供正確、錯誤、警告等狀態的提示是很重要的，在元件庫中，我們可以使用<code>.input-positive</code>、<code>.input-negative</code>、<code>.input-warning</code>三種 class 來達到這個需求。 </p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="input-wrap input-block icon-right">
+						<input class="input-block input-positive" type="text" placeholder="在這裡輸入內容">
+						<i class="material-icons">done</i>
+					</div>
+
+					<div class="input-wrap input-block input-primary icon-right">
+						<input class="input-block input-negative" type="text" placeholder="在這裡輸入內容">
+						<i class="material-icons">clear</i>
+					</div>
+					<div class="input-message input-message-negative">輸入欄位有錯誤</div>
+
+					<div class="input-wrap input-block input-primary icon-right">
+						<input class="input-block input-warning" type="password" placeholder="輸入密碼" value="723213781">
+						<i class="material-icons">info_outline</i>
+					</div>
+					<div class="input-message input-message-warning">這樣的密碼不夠安全</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>送出錯誤提示</h3>
+			<p>誇張的動畫效果（如晃動）能夠是錯誤狀態顯的更有張力，在我們的樣式庫中，我們可以使用 Animation 提供的 <code>.animation--shake-horizontal</code> 動畫來達到這個需求，具體實作方式如下。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="input-wrap input-block icon-right animation--shake-horizontal constant">
+						<input class="input-negative" type="text" placeholder="在這裡輸入內容">
+						<i class="material-icons">clear</i>
+					</div>
+					<div class="input-message input-message-negative">輸入欄位有錯誤</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;input-wrap input-block icon-right animation--shake-horizontal constant&quot;&gt;<br>
+	&lt;input class=&quot;input-negative&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;<br>
+	&lt;i class=&quot;material-icons&quot;&gt;clear&lt;/i&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>禁用輸入框（Disabled Input）</h3>
+			<p>在某些狀況下，輸入框禁止使用者輸入內容，我們可以使用元件庫提供的<code>.input-disabled</code>來達到這個需求。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<input class="input-disabled" type="text" placeholder="在這裡輸入內容">
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;input class=&quot;input-disabled&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>情境式表單（Input with Context）</h3>
+			<p>在要求使用者輸入特定格式（如網址、信箱、VISA卡號）的內容時，使用情境式表單會使一種很不錯的選擇，在元件庫中，我們可以使用<code>.input-group</code>與<code>.input-context</code>元素來達到這個需求。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="row">
+						<div class="input-group">
+							<div class="input-context">http://</div>
+							<input type="text">
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-group">
+							<input type="email">
+							<div class="input-context">@ogdesign.tw</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-group">
+							<input type="text" placeholder="團隊名稱">
+							<div class="input-context">.slack.com</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-group">
+							<div class="input-context">http://</div>
+							<input type="text" placeholder="domain">
+							<div class="input-context">.com.tw</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-group">
+							<div class="input-context input-context-m">http://</div>
+							<input class="input-m" type="text" placeholder="domain">
+							<div class="input-context input-context-m">.com.tw</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-group">
+							<div class="input-context input-context-l">http://</div>
+							<input class="input-l" type="text" placeholder="domain">
+							<div class="input-context input-context-l">.com.tw</div>
+						</div>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;div class=&quot;input-group&quot;&gt;<br>
+	&lt;div class=&quot;input-context&quot;&gt;http://&lt;/div&gt;<br>
+	&lt;input type=&quot;text&quot;&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;input-group&quot;&gt;<br>
+	&lt;input type=&quot;email&quot;&gt;<br>
+	&lt;div class=&quot;input-context&quot;&gt;@ogdesign.tw&lt;/div&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;input-group&quot;&gt;<br>
+	&lt;div class=&quot;input-context&quot;&gt;http://&lt;/div&gt;<br>
+	&lt;input type=&quot;text&quot; placeholder=&quot;domain&quot;&gt;<br>
+	&lt;div class=&quot;input-context&quot;&gt;.com.tw&lt;/div&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;input-group&quot;&gt;<br>
+	&lt;div class=&quot;input-context input-context-m&quot;&gt;http://&lt;/div&gt;<br>
+	&lt;input class=&quot;input-m&quot; type=&quot;text&quot; placeholder=&quot;domain&quot;&gt;<br>
+	&lt;div class=&quot;input-context input-context-m&quot;&gt;.com.tw&lt;/div&gt;<br>
+&lt;/div&gt;<br><br>
+&lt;div class=&quot;input-group&quot;&gt;<br>
+	&lt;div class=&quot;input-context input-context-l&quot;&gt;http://&lt;/div&gt;<br>
+	&lt;input class=&quot;input-l&quot; type=&quot;text&quot; placeholder=&quot;domain&quot;&gt;<br>
+	&lt;div class=&quot;input-context input-context-l&quot;&gt;.com.tw&lt;/div&gt;<br>
+&lt;/div&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+
+			<h3>複選按鈕（Checkbox）</h3>
+			<p>在某些狀況下，輸入框禁止使用者輸入內容，我們可以使用元件庫提供的<code>.input-disabled</code>來達到這個需求。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<label class="control checkbox">
+						<input type="checkbox" checked>
+						<span class="control-indicator"></span>
+						Check this custom checkbox
+					</label>
+					<label class="control checkbox">
+						<input type="checkbox">
+						<span class="control-indicator"></span>
+						Check this custom checkbox
+					</label>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;input class=&quot;input-disabled&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>單選按鈕（Radio Button）</h3>
+			<p>在某些狀況下，輸入框禁止使用者輸入內容，我們可以使用元件庫提供的<code>.input-disabled</code>來達到這個需求。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<label class="control radio">
+					    <input id="radio1" name="radio" type="radio" checked>
+					    <span class="control-indicator"></span> Toggle this custom radio
+					</label>
+					<label class="control radio">
+					    <input id="radio2" name="radio" type="radio">
+					    <span class="control-indicator"></span> Or toggle this other custom radio
+					</label>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;input class=&quot;input-disabled&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>下拉選單（Select menu）</h3>
+			<p>在某些狀況下，輸入框禁止使用者輸入內容，我們可以使用元件庫提供的<code>.input-disabled</code>來達到這個需求。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<div class="select select-xs">
+					    <select aria-label="Select menu example">
+					        <option selected>選擇你的國家</option>
+					        <option value="1">台灣</option>
+					        <option value="2">中國</option>
+					        <option value="3">美國</option>
+					    </select>
+					</div>
+					<div class="select select-s">
+					    <select aria-label="Select menu example">
+					        <option selected>選擇你的國家</option>
+					        <option value="1">台灣</option>
+					        <option value="2">中國</option>
+					        <option value="3">美國</option>
+					    </select>
+					</div>
+					<div class="select select-m">
+					    <select aria-label="Select menu example">
+					        <option selected>選擇你的國家</option>
+					        <option value="1">台灣</option>
+					        <option value="2">中國</option>
+					        <option value="3">美國</option>
+					    </select>
+					</div>
+					<div class="select select-l">
+					    <select aria-label="Select menu example">
+					        <option selected>選擇你的國家</option>
+					        <option value="1">台灣</option>
+					        <option value="2">中國</option>
+					        <option value="3">美國</option>
+					    </select>
+					</div>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;input class=&quot;input-disabled&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+			<h3>檔案選擇視窗（File Input）</h3>
+			<p>在某些狀況下，輸入框禁止使用者輸入內容，我們可以使用元件庫提供的<code>.input-disabled</code>來達到這個需求。</p>
+			<div class="preview">
+				<div class="example-preview">
+					<label class="file">
+						<input type="file" id="file" aria-label="File browser example">
+						<span class="file-custom"></span>
+					</label>
+				</div>
+				<div class="example-code">
+					<pre>
+						<code class="language-html hljs xml">
+&lt;input class=&quot;input-disabled&quot; type=&quot;text&quot; placeholder=&quot;&#x5728;&#x9019;&#x88e1;&#x8f38;&#x5165;&#x5167;&#x5bb9;&quot;&gt;
+						</code>
+					</pre>
+				</div>
+			</div>
+
+		</section>
+
+
+	</div>
+</body>
+</html>

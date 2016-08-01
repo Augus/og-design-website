@@ -1,0 +1,213 @@
+// ------------------------------------------
+// 轉場速度
+// ------------------------------------------
+$transition-duration-0: 0;
+$transition-duration-s: 80ms;
+$transition-duration-m: 150ms;
+$transition-duration-l: 300ms;
+$transition-duration-xl: 500ms;
+$transition-duration-xxl: 700ms;
+
+.transitionDuration-0 {
+	transition-duration: $transition-duration-0;
+}
+.transitionDuration-s {
+	transition-duration: $transition-duration-s;
+}
+.transitionDuration-m {
+	transition-duration: $transition-duration-m;
+}
+.transitionDuration-l {
+	transition-duration: $transition-duration-l;
+}
+.transitionDuration-xl {
+	transition-duration: $transition-duration-xl;
+}
+.transitionDuration-xxl {
+	transition-duration: $transition-duration-xxl;
+}
+
+// ------------------------------------------
+// 轉場函式
+// ------------------------------------------
+
+$timing-function-linear: linear;
+$timing-function-ease: ease;
+$timing-function-scaleIn: cubic-bezier(0,.89,.44,1);
+$timing-function-scaleOut: cubic-bezier(.165,.84,.44,1);
+$timing-function-scaleUp: cubic-bezier(.68,-.55,.265,1.55);
+
+.transitionTimingFunction-linear {
+    transition-timing-function: $timing-function-linear;
+}
+.transitionTimingFunction-ease {
+    transition-timing-function: $timing-function-ease;
+}
+.transitionTimingFunction-cb--scaleIn {
+	transition-timing-function: $timing-function-scaleIn;
+}
+.transitionTimingFunction-cb--scaleOut {
+	transition-timing-function: $timing-function-scaleOut;
+}
+.transitionTimingFunction-cb--scaleUp {
+    transition-timing-function: $timing-function-scaleUp;
+}
+
+// ------------------------------------------
+// 動畫
+// ------------------------------------------
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animation--spin {
+    animation: spin .8s infinite linear;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.animation--bounce {
+    animation: bounce 0.8s infinite cubic-bezier(0.11, 1.13, 0.64, 1.19);
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * *\  
+  CSShake :: Package
+  v1.5.0
+  CSS classes to move your DOM
+  (c) 2015 @elrumordelaluz
+  http://elrumordelaluz.github.io/csshake/
+  Licensed under MIT
+\* * * * * * * * * * * * * * * * * * * * */
+// Variables
+$prefix: 'shake' !default;
+$trigger: 'shake-trigger' !default;
+
+// Placeholders
+%shake {
+  display: inline-block;
+  transform-origin: center center;
+}
+
+%paused   { animation-play-state: paused; }
+%running  { animation-play-state: running; }
+
+@function apply-random($input) {
+  @return if($input != 0, random($input) - $input/2, 0);
+}
+
+/// Do The Shake
+/// @param {String}  $name ['shake']              - Name for the keyframes animation
+/// @param {Number}  $h [5px]                     - Max number for random to assign in x axis
+/// @param {Number}  $v [5px]                     - Max number for random to assign in y axis
+/// @param {Number}  $r [3deg]                    - Max number for random rotation
+/// @param {Number}  $dur [100ms]                 - animation-duration; valid time value
+/// @param {Number}  $precision [.1]              - Precision of the keyframes animation (i.e 2 > 2%, 4%, 6%...)
+/// @param {Boolean} $opacity [false]             - To apply random animation also in the opacity property
+/// @param {String}  $q [infinite]                - animation-iteration-count; valid value
+/// @param {String}  $t [ease-in-out]             - animation-timing-function; valid value
+/// @param {Number}  $delay [null]                - animation-delay; valid time value
+/// @param {Number}  $chunk [100%]                - Part of 100% where apply the animation
+@mixin do-shake(
+  $name: 'shake', 
+  $h: 5px, 
+  $v: 5px, 
+  $r: 3deg, 
+  $dur: 100ms, 
+  $precision: .02, 
+  $opacity: false, 
+  $q: infinite, 
+  $t: ease-in-out, 
+  $delay: null,
+  $chunk: 100%
+  ) {  
+
+  $rotate: 0;
+  $move-x: 0;
+  $move-y: 0;
+
+  $h: if(unitless($h) and $h != 0, $h * 1px, $h);
+  $v: if(unitless($v) and $v != 0, $v * 1px, $v);
+  $r: if(unitless($r) and $r != 0, $r * 1deg, $r);
+
+  // Keyframes
+  @at-root {
+    @keyframes #{$name} {
+      $interval: if($precision > 0 and $precision < 1, 100 * $precision, 10);
+      $step: $interval * 1%;
+
+      @while $step < $chunk {
+        $rotate: apply-random($r);
+        $move-x: apply-random($h);
+        $move-y: apply-random($v);
+        
+        #{$step} {
+          transform: translate($move-x, $move-y) rotate($rotate);
+          @if $opacity { opacity: random(100) / 100; }
+        }
+        
+        $step: $step + $interval;
+      }
+
+      #{ if($chunk < 100%, (0%, $chunk, 100%), (0%, 100%)) } {
+        transform: translate(0, 0) rotate(0);
+      }
+
+    }
+  }
+
+  @extend %shake;
+
+  &:hover,
+  &.constant,
+  .#{$trigger}:hover &,
+  &.#{$prefix}-freeze,
+  &.#{$prefix}-constant {
+    @if $delay { animation-delay: $delay; }
+    animation-name: #{$name};
+    animation-duration: $dur;
+    animation-timing-function: $t;
+    animation-iteration-count: $q;
+  }
+
+  &:hover,
+  &.constant,
+  .#{$trigger}:hover & { @extend %running; }
+
+}
+
+.#{$prefix}-freeze,
+.#{$prefix}-constant.#{$prefix}-constant--hover:hover,
+.#{$trigger}:hover .#{$prefix}-constant.#{$prefix}-constant--hover {
+  @extend %paused;
+}
+
+.#{$prefix}-freeze:hover,
+.#{$trigger}:hover .#{$prefix}-freeze { @extend %running; }
+
+.animation--shake            { @include do-shake(); }
+.animation--shake-little     { @include do-shake('animation--shake-little', 2, 2, 1); }
+// .animation--shake-slow       { @include do-shake('animation--shake-slow', 20, 20, 7, 5s); }
+// .animation--shake-hard       { @include do-shake('animation--shake-hard', 20, 20, 7); }
+.animation--shake-horizontal { @include do-shake('animation--shake-horizontal', 20, 0, 0); }
+// .animation--shake-vertical   { @include do-shake('animation--shake-vertical', 0, 20, 0); }
+// .animation--shake-rotate     { @include do-shake('animation--shake-rotate', 0, 0, 15); }
+// .animation--shake-opacity    { @include do-shake('animation--shake-opacity', 10, 10, 5, .5s, .1, $opacity: true); }
+// .animation--shake-crazy      { @include do-shake('animation--shake-crazy', 40, 40, 20, 100ms, .1, $opacity: true); }
+// .animation--shake-chunk      { @include do-shake('animation--shake-chunk', 30, 30, 30, 4s, $chunk: 40%); }
+

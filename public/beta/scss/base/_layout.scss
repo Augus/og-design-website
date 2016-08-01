@@ -1,0 +1,299 @@
+$padding-xxs: 5px;
+$padding-xs: 10px;
+$padding-s: 15px;
+$padding-m: 20px;
+$padding-l: 40px;
+$padding-xl: 80px;
+
+$margin-xxs: 5px;
+$margin-xs: 10px;
+$margin-s: 15px;
+$margin-m: 20px;
+$margin-l: 40px;
+$margin-xl: 80px;
+
+// ------------------------------------------
+// 留白
+// ------------------------------------------
+.padding-0 {
+	padding: 0;
+}
+
+.padding-xxs {
+	padding: $padding-xxs;
+}
+
+.padding-xs {
+	padding: $padding-xs;
+}
+
+.padding-s {
+	padding: $padding-s;
+}
+
+.padding-m {
+	padding: $padding-m;
+}
+
+.padding-l {
+	padding: $padding-l;
+}
+
+.padding-xl {
+	padding: $padding-xl;
+}
+
+.paddingTop-0 {
+	padding-top: 0;
+}
+
+.paddingTop-xxs {
+	padding-top:$padding-xxs;
+}
+
+.paddingTop-xs {
+	padding-top: $padding-xs;
+}
+
+.paddingTop-s {
+	padding-top: $padding-s;
+}
+
+.paddingTop-m {
+	padding-top: $padding-m;
+}
+
+.paddingTop-l {
+	padding-top: $padding-l;
+}
+
+.paddingTop-xl {
+	padding-top: $padding-xl;
+}
+
+.paddingBottom-0 {
+	padding-bottom: 0;
+}
+
+.paddingBottom-xxs {
+	padding-bottom:$padding-xxs;
+}
+
+.paddingBottom-xs {
+	padding-bottom: $padding-xs;
+}
+
+.paddingBottom-s {
+	padding-bottom: $padding-s;
+}
+
+.paddingBottom-m {
+	padding-bottom: $padding-m;
+}
+
+.paddingBottom-l {
+	padding-bottom: $padding-l;
+}
+
+.paddingBottom-xl {
+	padding-bottom: $padding-xl;
+}
+
+.paddingLeft-0 {
+	padding-left: 0;
+}
+
+.paddingLeft-xxs {
+	padding-left:$padding-xxs;
+}
+
+.paddingLeft-xs {
+	padding-left: $padding-xs;
+}
+
+.paddingLeft-s {
+	padding-left: $padding-s;
+}
+
+.paddingLeft-m {
+	padding-left: $padding-m;
+}
+
+.paddingLeft-l {
+	padding-left: $padding-l;
+}
+
+.paddingLeft-xl {
+	padding-left: $padding-xl;
+}
+
+.paddingRight-0 {
+	padding-right: 0;
+}
+
+.paddingLRight-xxs {
+	padding-right: $padding-xxs
+}
+
+.paddingLRight-xs {
+	padding-right: $padding-xs;
+}
+
+.paddingRight-s {
+	padding-right: $padding-s;
+}
+
+.paddingRight-m {
+	padding-right: $padding-m;
+}
+
+.paddingRight-l {
+	padding-right: $padding-l;
+}
+
+.paddingLRight-xl {
+	padding-right: $padding-xl;
+}
+
+// ------------------------------------------
+// 間距
+// ------------------------------------------
+.margin-0 {
+	margin: 0;
+}
+
+.margin-xxs {
+	margin: $margin-xxs;
+}
+
+.margin-xs {
+	margin: $margin-xs;
+}
+
+.margin-s {
+	margin: $margin-s;
+}
+
+.margin-m {
+	margin: $margin-m;
+}
+
+.margin-l {
+	margin: $margin-l;
+}
+
+.margin-xl {
+	margin: $margin-xl;
+}
+
+.marginTop-0 {
+	margin-top: 0;
+}
+
+.marginTop-xxs {
+	margin-top: $margin-xxs;
+}
+
+.marginTop-xs {
+	margin-top: $margin-xs;
+}
+
+.marginTop-s {
+	margin-top: $margin-s;
+}
+
+.marginTop-m {
+	margin-top: $margin-m;
+}
+
+.marginTop-l {
+	margin-top: $margin-l;
+}
+
+.marginTop-xl {
+	margin-top: $margin-xl;
+}
+
+.marginBottom-0 {
+	margin-bottom: 0;
+}
+
+.marginBottom-xxs {
+	margin-bottom: $margin-xxs;
+}
+
+.marginBottom-xs {
+	margin-bottom: $margin-xs;
+}
+
+.marginBottom-s {
+	margin-bottom: $margin-s;
+}
+
+.marginBottom-m {
+	margin-bottom: $margin-m;
+}
+
+.marginBottom-l {
+	margin-bottom: $margin-l;
+}
+
+.marginBottom-xl {
+	margin-bottom: $margin-xl;
+}
+
+.marginLeft-0 {
+	margin-left: 0;
+}
+
+.marginLeft-xxs {
+	margin-left: $margin-xxs;
+}
+
+.marginLeft-xs {
+	margin-left: $margin-xs;
+}
+
+.marginLeft-s {
+	margin-left: $margin-s;
+}
+
+.marginLeft-m {
+	margin-left: $margin-m;
+}
+
+.marginLeft-l {
+	margin-left: $margin-l;
+}
+
+.marginLeft-xl {
+	margin-left: $margin-xl;
+}
+
+.marginRight-0 {
+	margin-right: 0;
+}
+
+.marginRight-xxs {
+	margin-right: $margin-xxs;
+}
+
+.marginRight-xs {
+	margin-right: $margin-xs;
+}
+
+.marginRight-s {
+	margin-right: $margin-s;
+}
+
+.marginRight-m {
+	margin-right: $margin-m;
+}
+
+.marginRight-l {
+	margin-right: $margin-l;
+}
+
+.marginLRightxl {
+	margin-right: $margin-xl;
+}

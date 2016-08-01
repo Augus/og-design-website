@@ -1,0 +1,36 @@
+.position-fixed {
+	position: fixed;
+}
+.position-absolute {
+	position: absolute;
+}
+.position-relative {
+	position: relative;
+}
+.posPinCenter {
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+.posPinTL {
+	top: 0;
+	left: 0;
+}
+.posPinTR {
+	top: 0;
+	right: 0;
+}
+.posPinBL {
+	bottom: 0;
+	left: 0;
+}
+.posPinBR {
+	bottom: 0;
+	right: 0;
+}
+.posPinFill {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}

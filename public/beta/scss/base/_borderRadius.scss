@@ -1,0 +1,23 @@
+@mixin border-radius-tools ($size, $radius) {
+	.borderRadius-#{$size} {
+		border-radius: $radius;
+	}
+	.borderTopLeftRadius-#{$size} {
+		border-radius: $radius 0 0 0;
+	}
+	.borderTopRightRadius-#{$size} {
+		border-radius: 0 $radius 0 0;
+	}
+	.borderBottomLeftRadius-#{$size} {
+		border-radius: 0 0 $radius 0;
+	}
+	.borderBottomRightRadius-#{$size} {
+		border-radius: 0 0 0 $radius;
+	}
+}
+
+@include border-radius-tools("0", 0);
+@include border-radius-tools("s", 2px);
+@include border-radius-tools("m", 5px);
+@include border-radius-tools("l", 10px);
+@include border-radius-tools("circle", 50%);
